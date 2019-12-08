@@ -1,0 +1,19 @@
+package logic;
+
+
+public class Grass{
+    Vector2d position;
+    Grass (Vector2d position){
+            this.position=position;
+    }
+
+
+    public String toString() {
+        return "*";
+    }
+
+    public Vector2d getPosition(){
+        return this.position;
+    }
+
+}
