@@ -2,15 +2,19 @@ package logic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class World {
 
     public static void main(String[] args) {
 
         try {
-            Jungle map = new Jungle(5,5,5);
-            new Animal(map,100);
-            new Animal(map, 100);
+            ArrayList<Double> parameters = ReadJson.readFile();
+            System.out.println(parameters);
+            int startEnergy = parameters.get(2).intValue();
+            Jungle map = new Jungle(parameters);
+            new Animal(map,startEnergy);
+            new Animal(map,startEnergy);
             System.out.println(map);
             for(int i=0; i <20;i++) {
 //                System.out.println(map.status.vectorToAnimals.size());

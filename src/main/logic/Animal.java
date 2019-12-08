@@ -3,7 +3,7 @@ package logic;
 import java.util.*;
 
 public class Animal {
-    ArrayList<IEnergyChangeObserver> observerList = new ArrayList<>();
+    ArrayList<IAnimalStatusChangeObserver> observerList = new ArrayList<>();
     private MapDirection orientation = MapDirection.NORTH;
     int energy = 100;
     Gene gen;

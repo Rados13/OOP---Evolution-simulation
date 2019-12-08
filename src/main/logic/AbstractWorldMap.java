@@ -6,7 +6,7 @@ abstract class AbstractWorldMap implements IWorldMap {
     LinkedList<Animal> animals = new LinkedList<Animal>();
     AnimalsStatus status = new AnimalsStatus();
     int numberOfAnimals=0;
-
+    int moveEnergy = 50;
 
 
     public String toString() {
@@ -41,10 +41,7 @@ abstract class AbstractWorldMap implements IWorldMap {
         return status.objectAt(position);
     }
 
-    public void positionChanged(Animal anim,Vector2d newPosition,MapDirection newOrientation){
-        status.energyChanged(anim,newPosition,newOrientation);
-    }
-
+    abstract void positionChanged(Animal anim,Vector2d newPosition,MapDirection newOrientation);
     abstract Vector2d getLowerLeft();
     abstract Vector2d getUpperRight();
 

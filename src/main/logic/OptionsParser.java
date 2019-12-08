@@ -3,7 +3,7 @@ package logic;
 import java.util.Arrays;
 
 public class OptionsParser {
-    public MapDirection parse(int arg) {
+    public static MapDirection parse(int arg) {
         MapDirection result;
         switch (arg) {
             case 0:

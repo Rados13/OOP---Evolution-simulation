@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="580bcf62-8e41-450a-a549-2a4e37588514" name="Default Changelist" comment="" />
+    <list default="true" id="580bcf62-8e41-450a-a549-2a4e37588514" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/logic/ReadJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obiektowe-Projekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Obiektowe-Projekt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AbstractWorldMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AbstractWorldMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AnimalsStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AnimalsStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/IEnergyChangeObserver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Jungle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Jungle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/OptionsParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/OptionsParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/World.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GUI/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GUI/StartSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/ButtonPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/IEnergyChangeObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/Jungle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/Jungle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/OptionsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/World.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +35,7 @@
     <session id="-572537873">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.opened" value="2" />
         </counts>
@@ -20,23 +43,25 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="form" value="1" />
-          <entry key="java" value="57" />
+          <entry key="java" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="GUI_DESIGNER_FORM" value="1" />
-          <entry key="JAVA" value="57" />
+          <entry key="JAVA" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="10318" />
+          <entry key="dummy" value="7" />
+          <entry key="java" value="12624" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10318" />
+          <entry key="JAVA" value="12624" />
+          <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -46,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/GUI/MyFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            <state relative-caret-position="119">
+              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,11 +80,49 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/StartSimulation.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/GUI/ButtonPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="374">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/logic/World.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/logic/Jungle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/logic/ReadJson.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#347#377#0" expanded="true" />
+                <element signature="e#1173#1181#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,19 +136,6 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#156#157#0" expanded="true" />
                 <element signature="e#221#222#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-              <folding>
-                <element signature="e#207#208#0" expanded="true" />
-                <element signature="e#252#253#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,6 +157,7 @@
       <find>addElement</find>
       <find>AddElement</find>
       <find>System</find>
+      <find>worldobject</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,27 +184,30 @@
         <option value="$PROJECT_DIR$/src/main/Gene.java" />
         <option value="$PROJECT_DIR$/src/main/World.java" />
         <option value="$PROJECT_DIR$/src/main/Jungle.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/World.java" />
         <option value="$PROJECT_DIR$/src/main/logic/MapDirection.java" />
         <option value="$PROJECT_DIR$/src/main/logic/MapVisualizer.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/OptionsParser.java" />
         <option value="$PROJECT_DIR$/src/main/logic/Vector2d.java" />
         <option value="$PROJECT_DIR$/src/main/logic/IWorldMap.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/IEnergyChangeObserver.java" />
         <option value="$PROJECT_DIR$/src/main/logic/Grass.java" />
         <option value="$PROJECT_DIR$/src/main/logic/Gene.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" />
         <option value="$PROJECT_DIR$/src/test/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/logic/test/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/test/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/test/Vector2dTest.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/Jungle.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/Animal.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" />
         <option value="$PROJECT_DIR$/src/main/GUI/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/GUI/MyFrame.java" />
         <option value="$PROJECT_DIR$/src/main/GUI/MyPanel.java" />
         <option value="$PROJECT_DIR$/src/main/GUI/StartSimulation.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/MyFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ButtonPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/OptionsParser.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/IEnergyChangeObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/Animal.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/ReadJson.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/World.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/Jungle.java" />
       </list>
     </option>
   </component>
@@ -194,6 +248,13 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Obiektowe-Projekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Obiektowe-Projekt" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -205,7 +266,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575827791455" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575835908746" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -223,7 +284,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GUI">
+  <component name="RunManager" selected="Application.Worl">
     <configuration name="GUI" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="GUI.Test" />
       <module name="Obiektowe-Projekt" />
@@ -258,7 +319,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22818792" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -270,7 +330,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -526,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/OptionsParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/logic/MapVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -547,13 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/IEnergyChangeObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/logic/Gene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -565,16 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding>
-            <element signature="e#139#147#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,16 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -640,30 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/Jungle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="59" column="86" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
-          <folding>
-            <element signature="method#Jungle#0;class#Jungle#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/AnimalsStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GUI/MyPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -676,20 +678,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GUI/MyFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/ButtonPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="374">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GUI/StartSimulation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/logic/OptionsParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="51">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/MyFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="105" selection-start-line="4" selection-start-column="105" selection-end-line="4" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/AnimalsStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+          <folding>
+            <element signature="method#getAnimalWithHighestEnergy#0;class#AnimalsStatus#0" />
+            <element signature="method#getParents#0;class#AnimalsStatus#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="61" column="80" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="43" column="94" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
+          <folding>
+            <element signature="e#139#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/Jungle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/ReadJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#347#377#0" expanded="true" />
+            <element signature="e#1173#1181#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

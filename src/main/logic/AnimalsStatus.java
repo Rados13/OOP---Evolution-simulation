@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 
-public class AnimalsStatus implements IEnergyChangeObserver {
+public class AnimalsStatus implements IAnimalStatusChangeObserver {
 
     class CompareByEnergy implements Comparator {
 
@@ -28,10 +28,17 @@ public class AnimalsStatus implements IEnergyChangeObserver {
 
     Map<Vector2d, ArrayList<Animal>> vectorToAnimals = new LinkedHashMap<>();
 
-    public void energyChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation) {
+    public void positionChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation,int newEnergy) {
         removeElement(prevState);
         prevState.setPosition(newPosition);
         prevState.setOrientation(newOrientation);
+        prevState.energy=newEnergy;
+        addElement(prevState);
+    }
+
+    public void energyChanged(Animal prevState, int newEnergy){
+        removeElement(prevState);
+        prevState.energy=newEnergy;
         addElement(prevState);
     }
 
