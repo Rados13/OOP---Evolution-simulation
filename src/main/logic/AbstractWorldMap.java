@@ -18,9 +18,9 @@ abstract class AbstractWorldMap implements IWorldMap {
     }
 
     public boolean place(Animal anim) {
-//        if (!canMoveTo(anim.getPosition())) {
-//            throw new IllegalArgumentException(anim.position + " is ocuppied position");
-//        }
+        if (!canMoveTo(anim.getPosition())) {
+            throw new IllegalArgumentException(anim.getPosition() + " is ocuppied position");
+        }
         animals.add(anim);
         status.addElement(anim);
         return true;

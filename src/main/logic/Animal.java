@@ -5,23 +5,24 @@ import java.util.*;
 public class Animal {
     ArrayList<IAnimalStatusChangeObserver> observerList = new ArrayList<>();
     private MapDirection orientation = MapDirection.NORTH;
-    int energy = 100;
+    double energy = 100;
     Gene gen;
     private Vector2d position;
     AbstractWorldMap map;
-    int id;
+    private int id;
 
 
-    Animal(AbstractWorldMap map,int startEnergy) {
+    Animal(AbstractWorldMap map,double startEnergy,Gene genoType) {
         this.position = new Vector2d().generatePosition(0,0,map);
         this.map = map;
         this.energy=startEnergy;
         this.map.place(this);
+        this.orientation = OptionsParser.parse((int)Math.round(Math.random()*7));
         this.id = map.getNextId();
         this.gen=new Gene();
     }
 
-    Animal(AbstractWorldMap map,int startEnergy,int x,int y,Gene genoType) {
+    Animal(AbstractWorldMap map,double startEnergy,int x,int y,Gene genoType) {
         this.position = new Vector2d(x,y);
         this.map = map;
         this.energy=startEnergy;
@@ -71,6 +72,9 @@ public class Animal {
                 && this.gen.equals(that.gen);
     }
 
+    public int getId() {return this.id;}
+    public double getEnergy() {return this.energy;}
+    public Gene getGen(){return this.gen;}
     public Vector2d getPosition() {
         return this.position;
     }
@@ -102,5 +106,6 @@ public class Animal {
         }
         return new Vector2d(x,y);
     }
+
 
 }

@@ -2,27 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="580bcf62-8e41-450a-a549-2a4e37588514" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/logic/ReadJson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obiektowe-Projekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Obiektowe-Projekt.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AbstractWorldMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AbstractWorldMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Animal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AnimalsStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/AnimalsStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/IEnergyChangeObserver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/ButtonPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/MyPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/Test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/GUI/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Gene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Gene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Jungle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/Jungle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/OptionsParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/OptionsParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/ReadJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/ReadJson.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GUI/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GUI/StartSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/ButtonPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/parameters.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/logic/parameters.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Obiektowe-Projekt/parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GUI/ButtonPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GUI/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GUI/MyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUI/SimulationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GUI/Test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/logic/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/logic/IEnergyChangeObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/Gene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/Gene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/logic/Jungle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/Jungle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/logic/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/OptionsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/MapDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/ReadJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/ReadJson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/logic/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/logic/parameters.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/logic/parameters.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/parameters.json" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,43 +42,50 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="form" value="1" />
-          <entry key="java" value="68" />
+          <entry key="form" value="3" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="135" />
+          <entry key="json" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="GUI_DESIGNER_FORM" value="1" />
-          <entry key="JAVA" value="68" />
+          <entry key="GUI_DESIGNER_FORM" value="3" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="135" />
+          <entry key="JSON" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="7" />
-          <entry key="java" value="12624" />
+          <entry key="dummy" value="27" />
+          <entry key="java" value="26156" />
+          <entry key="json" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12624" />
-          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="JAVA" value="26156" />
+          <entry key="JSON" value="80" />
+          <entry key="PLAIN_TEXT" value="27" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/MyFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/main/GUI/ButtonsSimulationPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+            <state relative-caret-position="170">
+              <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,12 +94,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/ButtonPanel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/GUI/SimulationPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="153">
+              <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1208#1209#0" expanded="true" />
+                <element signature="e#1260#1261#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,20 +110,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/logic/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="204">
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#851#852#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#917#918#0" expanded="true" />
+                <element signature="e#945#946#0" expanded="true" />
+                <element signature="e#998#999#0" expanded="true" />
+                <element signature="e#1037#1038#0" expanded="true" />
+                <element signature="e#1087#1088#0" expanded="true" />
+                <element signature="e#1121#1122#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1216#1217#0" expanded="true" />
+                <element signature="method#makeNTurns#0;class#World#0" />
+                <element signature="method#main#0;class#World#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/logic/Jungle.java">
+        <entry file="file://$PROJECT_DIR$/src/main/logic/Animal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            <state relative-caret-position="187">
+              <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+              <folding>
+                <element signature="method#futurePosition#0;class#Animal#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,27 +145,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/logic/ReadJson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+            <state relative-caret-position="357">
+              <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#347#377#0" expanded="true" />
-                <element signature="e#1173#1181#0" expanded="true" />
+                <element signature="method#readFileWorld#0;class#ReadJson#0" />
+                <element signature="method#parseWorldObject#0;class#ReadJson#0" />
+                <element signature="method#readFileForm#0;class#ReadJson#0" />
+                <element signature="method#parseDescriptionObject#0;class#ReadJson#0" />
+                <element signature="method#saveChanges#0;class#ReadJson#0" />
+                <element signature="method#getScale#0;class#ReadJson#0" />
+                <element signature="e#5031#5040#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/GUI/MyPanel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/logic/parameters.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="20" column="47" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#156#157#0" expanded="true" />
-                <element signature="e#221#222#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="10" column="118" selection-start-line="10" selection-start-column="118" selection-end-line="10" selection-end-column="118" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/logic/Gene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="124" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="124" />
             </state>
           </provider>
         </entry>
@@ -146,6 +184,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -156,8 +195,15 @@
       <find>changePosition</find>
       <find>addElement</find>
       <find>AddElement</find>
-      <find>System</find>
       <find>worldobject</find>
+      <find>textArea</find>
+      <find>Text</find>
+      <find>ButtonPanel</find>
+      <find>System</find>
+      <find>25</find>
+      <find>stream</find>
+      <find>gridy</find>
+      <find>gc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,30 +212,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/MapBoundary.java" />
-        <option value="$PROJECT_DIR$/src/main/MapDirection.java" />
-        <option value="$PROJECT_DIR$/src/main/OptionsParser.java" />
-        <option value="$PROJECT_DIR$/src/main/IWorldMap.java" />
-        <option value="$PROJECT_DIR$/src/main/IPositionChangeObserver.java" />
-        <option value="$PROJECT_DIR$/src/test/ParserTest.java" />
-        <option value="$PROJECT_DIR$/src/test/MapBoundaryTest.java" />
-        <option value="$PROJECT_DIR$/src/main/Vector2d.java" />
-        <option value="$PROJECT_DIR$/src/main/EnergyStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/AnimalStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/IEnergyChangeObserver.java" />
-        <option value="$PROJECT_DIR$/src/main/gene.java" />
-        <option value="$PROJECT_DIR$/src/main/AbstractWorldMap.java" />
-        <option value="$PROJECT_DIR$/src/main/Animal.java" />
         <option value="$PROJECT_DIR$/src/main/AnimalsStatus.java" />
         <option value="$PROJECT_DIR$/src/main/Gene.java" />
         <option value="$PROJECT_DIR$/src/main/World.java" />
         <option value="$PROJECT_DIR$/src/main/Jungle.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/MapDirection.java" />
         <option value="$PROJECT_DIR$/src/main/logic/MapVisualizer.java" />
         <option value="$PROJECT_DIR$/src/main/logic/Vector2d.java" />
         <option value="$PROJECT_DIR$/src/main/logic/IWorldMap.java" />
         <option value="$PROJECT_DIR$/src/main/logic/Grass.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/Gene.java" />
         <option value="$PROJECT_DIR$/src/test/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/logic/test/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/test/MapDirectionTest.java" />
@@ -197,17 +227,42 @@
         <option value="$PROJECT_DIR$/src/main/GUI/Test.java" />
         <option value="$PROJECT_DIR$/src/main/GUI/MyPanel.java" />
         <option value="$PROJECT_DIR$/src/main/GUI/StartSimulation.java" />
-        <option value="$PROJECT_DIR$/src/main/GUI/MyFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/GUI/ButtonPanel.java" />
         <option value="$PROJECT_DIR$/src/main/logic/OptionsParser.java" />
         <option value="$PROJECT_DIR$/src/main/logic/IEnergyChangeObserver.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/Gene.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/Try.form" />
+        <option value="$PROJECT_DIR$/src/main/GUI/MainPanel.form" />
+        <option value="$PROJECT_DIR$/src/main/GUI/MyFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/IChangePanelInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/panel.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/TextArea.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/TextPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ButtonPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/MenuPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/PairOfJsonObject.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ParametersPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/WriteJson.java" />
         <option value="$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/Animal.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ReadImage.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/MapPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/IChangePanelListener.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/buttonsSimulationPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/FormPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/MapDirection.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/AnimalListPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/AnimalsStatus.java" />
         <option value="$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/ReadJson.java" />
-        <option value="$PROJECT_DIR$/src/main/logic/World.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ListFrame.java" />
         <option value="$PROJECT_DIR$/src/main/logic/Jungle.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ISimulationChangeListener.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/ButtonsSimulationPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/GUI/SimulationPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/Animal.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/World.java" />
+        <option value="$PROJECT_DIR$/src/main/logic/parameters.json" />
+        <option value="$PROJECT_DIR$/src/main/logic/ReadJson.java" />
       </list>
     </option>
   </component>
@@ -246,13 +301,6 @@
               <item name="Obiektowe-Projekt" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Obiektowe-Projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Obiektowe-Projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -266,7 +314,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575835908746" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575933643805" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -284,9 +332,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Worl">
+  <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="GUI.Test" />
+      <option name="MAIN_CLASS_NAME" value="GUI.Main" />
       <module name="Obiektowe-Projekt" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -319,8 +367,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22818792" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23154363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -329,8 +378,36 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.32907802" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32907802" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23154363" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32907802" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -346,264 +423,25 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/GrassField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="55" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MoveDirection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MapDirection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IWorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/OptionsParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="31" column="93" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Grass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/RectunglarMapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/MapBoundaryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/GrassFieldTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/ParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="11" selection-start-column="2" selection-end-line="23" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Obiektowe/src_8/main/AbstractWorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Obiektowe/src_8/main/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="69" selection-start-line="69" selection-end-line="76" />
-          <folding>
-            <element signature="e#2047#2048#0" expanded="true" />
-            <element signature="e#2094#2095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Obiektowe/src_8/main/GrassField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="40" lean-forward="true" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/function/ToIntFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IEnergyChangeObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="60" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Vector2d.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="77" column="71" selection-start-line="77" selection-start-column="71" selection-end-line="77" selection-end-column="71" />
-          <folding>
-            <element signature="method#Vector2d#0;class#Vector2d#0" />
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="method#upperRight#0;class#Vector2d#0" />
-            <element signature="method#lowerLeft#0;class#Vector2d#0" />
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="method#equals#0;class#Vector2d#0" />
-            <element signature="method#hashCode#0;class#Vector2d#0" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1626#1627#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AbstractWorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-          <folding>
-            <element signature="e#123#131#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AnimalsStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#eneChanged#0;class#EnergyStatus#0" />
-            <element signature="method#addElement#0;class#AnimalStatus#0" />
-            <element signature="method#removeElement#0;class#AnimalsStatus#0" />
-            <element signature="method#getAnimalWithHighestEnergy#0;class#AnimalsStatus#0" />
-            <element signature="e#2198#2206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Gene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="56" column="67" selection-start-line="56" selection-start-column="67" selection-end-line="56" selection-end-column="67" />
-          <folding>
-            <element signature="method#getMoveFromGene#0;class#Gene#0" />
-            <element signature="method#equals#0;class#Gene#0" />
-            <element signature="e#1312#1327#0" expanded="true" />
-            <element signature="e#1389#1398#0" expanded="true" />
-            <element signature="method#scaling#0;class#Gene#0" />
-            <element signature="e#2259#2267#0" expanded="true" />
-            <element signature="e#2758#2767#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="method#toString#0;class#Animal#0" />
-            <element signature="method#futurPosition#0;class#Animal#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/App.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/App.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Jungle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
-          <folding>
-            <element signature="e#207#223#0" expanded="true" />
-            <element signature="method#Jungle#0;class#Jungle#0" />
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="method#clearMapOfDeadths#0;class#Jungle#0" />
-            <element signature="method#childrenGene#0;class#Jungle#0" />
-            <element signature="e#2353#2362#0" expanded="true" />
-            <element signature="e#3058#3059#0" expanded="true" />
-            <element signature="e#3090#3091#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/MapDirection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Vector2d.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/AbstractWorldMap.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/AnimalsStatus.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/Gene.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/World.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/Animal.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/App.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/App.form" />
+    <entry file="file://$PROJECT_DIR$/src/main/Jungle.java" />
     <entry file="file://$PROJECT_DIR$/src/main/logic/MapVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/IWorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/Gene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -614,44 +452,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/Vector2d.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/MapDirectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/test/MapDirectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GUI/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#207#208#0" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/MapDirectionTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/logic/test/MapDirectionTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/test/MapDirectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -666,28 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GUI/MyPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#156#157#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GUI/ButtonPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/logic/OptionsParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -695,76 +475,346 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GUI/MyFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/logic/Vector2d.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        <state relative-caret-position="-68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/Try.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/MenuPanel.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/MainPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#207#208#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/SimulationPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/panel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/TextPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#91#92#0" expanded="true" />
+            <element signature="e#128#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/WriteJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/logic/IAnimalStatusChangeObserver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="105" selection-start-line="4" selection-start-column="105" selection-end-line="4" selection-end-column="105" />
+          <caret line="4" column="98" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/PairOfJsonObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/ReadImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/IChangePanelListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/MenuPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/IWorldMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/ParametersPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/MapPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/MapDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/FormPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2474#2482#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/AnimalListPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="62" column="8" lean-forward="true" selection-start-line="59" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#mainListener#0;class#MainFrame#0" />
+            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/logic/AnimalsStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        <state relative-caret-position="131">
+          <caret line="87" column="23" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="23" />
           <folding>
+            <element signature="class#CompareByEnergy#0;class#AnimalsStatus#0" />
+            <element signature="method#compare#0;class#CompareByEnergy#0;class#AnimalsStatus#0" />
+            <element signature="method#positionChanged#0;class#AnimalsStatus#0" />
+            <element signature="method#energyChanged#0;class#AnimalsStatus#0" />
+            <element signature="method#addElement#0;class#AnimalsStatus#0" />
+            <element signature="method#removeElement#0;class#AnimalsStatus#0" />
             <element signature="method#getAnimalWithHighestEnergy#0;class#AnimalsStatus#0" />
-            <element signature="method#getParents#0;class#AnimalsStatus#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="61" column="80" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/logic/AbstractWorldMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="43" column="94" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
+        <state relative-caret-position="289">
+          <caret line="21" column="65" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
           <folding>
             <element signature="e#139#147#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/Jungle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/ListFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="204">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/logic/ReadJson.java">
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/ISimulationChangeListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="153">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/ButtonsSimulationPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#347#377#0" expanded="true" />
-            <element signature="e#1173#1181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GUI/SimulationPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/Jungle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Jungle#0;class#Jungle#0" />
+            <element signature="method#Jungle#1;class#Jungle#0" />
+            <element signature="method#objectAt#0;class#Jungle#0" />
+            <element signature="method#positionChanged#0;class#Jungle#0" />
+            <element signature="method#eating#0;class#Jungle#0" />
+            <element signature="method#reproduction#0;class#Jungle#0" />
+            <element signature="method#generateGrassCenter#0;class#Jungle#0" />
+            <element signature="method#generateGrassAllMap#0;class#Jungle#0" />
+            <element signature="e#4498#4499#0" expanded="true" />
+            <element signature="e#4553#4554#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Obiektowe-Projekt.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/Gene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="124" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+          <folding>
+            <element signature="method#futurePosition#0;class#Animal#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="e#851#852#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+            <element signature="method#makeNTurns#0;class#World#0" />
+            <element signature="method#main#0;class#World#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/parameters.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="118" selection-start-line="10" selection-start-column="118" selection-end-line="10" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/logic/ReadJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readFileWorld#0;class#ReadJson#0" />
+            <element signature="method#parseWorldObject#0;class#ReadJson#0" />
+            <element signature="method#readFileForm#0;class#ReadJson#0" />
+            <element signature="method#parseDescriptionObject#0;class#ReadJson#0" />
+            <element signature="method#saveChanges#0;class#ReadJson#0" />
+            <element signature="method#getScale#0;class#ReadJson#0" />
+            <element signature="e#5031#5040#0" expanded="true" />
           </folding>
         </state>
       </provider>

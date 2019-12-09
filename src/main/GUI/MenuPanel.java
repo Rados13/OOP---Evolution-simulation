@@ -7,15 +7,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 
-public class ButtonPanel extends JPanel implements ActionListener {
+public class MenuPanel extends JPanel implements ActionListener {
 
-    public static int HEIGHT = 100;
-    public static int WIDTH = 300;
+    private static int HEIGHT = 100;
+    private static int WIDTH = 300;
     private JButton startButton;
     private JButton changeParametersButton;
+    private IChangePanelListener listener;
 
-
-    ButtonPanel(){
+    MenuPanel(IChangePanelListener listener) {
+        this.listener=listener;
         startButton = new JButton("Start Simulation");
         startButton.addActionListener(this);
 
@@ -24,21 +25,22 @@ public class ButtonPanel extends JPanel implements ActionListener {
 
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        add(startButton);
-        add(changeParametersButton);
+        add(startButton,BorderLayout.WEST);
+        add(changeParametersButton,BorderLayout.EAST);
     }
+
 
 
     public void actionPerformed(ActionEvent event) {
         Object source = event.getSource();
 
-        if(source==startButton){
-
+        if (source == startButton) {
+            listener.startSimulation();
         }
 
 
-        if(source==changeParametersButton){
-
+        if (source == changeParametersButton) {
+            listener.setParameters();
         }
     }
 }

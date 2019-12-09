@@ -1,38 +1,38 @@
 package logic;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Jungle extends AbstractWorldMap {
     Map<Vector2d, Grass> fields = new LinkedHashMap<Vector2d, Grass>();
     private Vector2d LowerLeft = new Vector2d(0, 0);
     private Vector2d UpperRight = new Vector2d(0, 0);
-    private int startEnergy;
-    private int moveEnergy;
-    private int plantEnergy;
+    private double startEnergy;
+    private double moveEnergy;
+    private double plantEnergy;
     private double jungleRatio;
 
-    Jungle(int x, int y, int moveEnergy) {
+    Jungle(int x, int y, double moveEnergy) {
         UpperRight = UpperRight.add(new Vector2d(x - 1, y - 1));
         this.moveEnergy = moveEnergy;
     }
 
     Jungle(ArrayList<Double> parameters) {
-        if (parameters.get(0).intValue() < 0 || parameters.get(1).intValue() < 0) {
-            throw new IllegalArgumentException(parameters.get(0).intValue() + "  " + parameters.get(1).intValue() + " are not legal map size");
+        if (Math.round(parameters.get(0)) < 0 || Math.round(parameters.get(1)) < 0) {
+            throw new IllegalArgumentException(Math.round(parameters.get(0)) + "  " + Math.round(parameters.get(1)) + " are not legal map size");
         }
-        UpperRight = UpperRight.add(new Vector2d(parameters.get(0).intValue() - 1, parameters.get(1).intValue() - 1));
+        UpperRight = UpperRight.add(new Vector2d((int)Math.round(parameters.get(0)) - 1, (int)Math.round(parameters.get(1)) - 1));
 
-
-        this.startEnergy = parameters.get(2).intValue();
-        this.moveEnergy = parameters.get(3).intValue();
-        this.plantEnergy = parameters.get(4).intValue();
+        this.startEnergy = parameters.get(2);
+        this.moveEnergy = parameters.get(3);
+        this.plantEnergy = parameters.get(4);
         this.jungleRatio = parameters.get(5);
 
 
         if (parameters.get(6) < 0 || parameters.get(6) >= parameters.get(0).intValue() * parameters.get(1).intValue()) {
             throw new IllegalArgumentException(parameters.get(6) + " is not legal number of grass");
         }
-        int n = parameters.get(6).intValue();
+        int n = (int) parameters.get(6).longValue();
         while (fields.size() < n * 3 / 4) {
             generateGrassCenter();
         }
@@ -64,10 +64,15 @@ public class Jungle extends AbstractWorldMap {
     void clearMapOfDeadths() {
         for (Animal anim : animals) {
             if (anim.energy <= 0) {
-                animals.remove(anim);
                 status.removeElement(anim);
             }
         }
+        animals=animals.stream().filter(anim -> status.exist(anim)).collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    void generateGrassForOneDay(){
+        generateGrassCenter();
+        generateGrassAllMap();
     }
 
     void eating() {
@@ -108,18 +113,14 @@ public class Jungle extends AbstractWorldMap {
     }
 
     Gene childrenGene(List<Animal> parents) {
-        int biggerPartOfGene = (int) Math.round(Math.random());
-        ArrayList<Integer> newSchemeOfGene = new ArrayList<Integer>();
-        newSchemeOfGene.addAll(parents.get(biggerPartOfGene).gen.getNPartsFromgenDivedOnThreeParts(2));
-        newSchemeOfGene.addAll(parents.get(1 - biggerPartOfGene).gen.getNPartsFromgenDivedOnThreeParts(1));
-        return new Gene(newSchemeOfGene, true);
+        return parents.get(0).gen.getChildrenGene(parents.get(1).gen);
     }
 
-    Vector2d getLowerLeft() {
+    public Vector2d getLowerLeft() {
         return LowerLeft;
     }
 
-    Vector2d getUpperRight() {
+    public Vector2d getUpperRight() {
         return UpperRight;
     }
 
@@ -134,5 +135,10 @@ public class Jungle extends AbstractWorldMap {
         fields.put(vector, new Grass(vector));
     }
 
-
+    public ArrayList<Vector2d> getFields(){
+        return new ArrayList<>(fields.keySet());
+    }
+    public ArrayList<Animal> getAnimals(){
+        return new ArrayList<Animal>(animals);
+    }
 }

@@ -2,6 +2,8 @@ package logic;
 
 enum MapDirection{
     NORTH, SOUTH, WEST, EAST,NORTHEAST,NORTHWEST,SOUTHEAST,SOUTHWEST;
+
+    @Override
     public String toString(){
         switch (this){
             case EAST:return "Wschod";

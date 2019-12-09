@@ -18,17 +18,17 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
             }
             Animal animalFirst = (Animal) o1;
             Animal animalSecond = (Animal) o2;
-            int diffrence = animalFirst.energy - animalSecond.energy;
+            double diffrence = animalFirst.energy - animalSecond.energy;
             if (diffrence != 0) {
-                return diffrence;
+                return (int) diffrence;
             }
-            return animalFirst.id - animalSecond.id;
+            return animalFirst.getId() - animalSecond.getId();
         }
     }
 
     Map<Vector2d, ArrayList<Animal>> vectorToAnimals = new LinkedHashMap<>();
 
-    public void positionChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation,int newEnergy) {
+    public void positionChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation,double newEnergy) {
         removeElement(prevState);
         prevState.setPosition(newPosition);
         prevState.setOrientation(newOrientation);
@@ -36,7 +36,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         addElement(prevState);
     }
 
-    public void energyChanged(Animal prevState, int newEnergy){
+    public void energyChanged(Animal prevState, double newEnergy){
         removeElement(prevState);
         prevState.energy=newEnergy;
         addElement(prevState);
@@ -77,7 +77,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         return highestEnergyAnimals;
     }
 
-    List<Animal> getParents(Vector2d vector, int reproductionEnergy) {
+    List<Animal> getParents(Vector2d vector, double reproductionEnergy) {
         ArrayList<Animal> array = vectorToAnimals.get(vector);
         if (array.size() <= 0) throw new IllegalArgumentException(vector + " on this position none animal exist");
         if(array.size()<2){
@@ -91,5 +91,9 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
             return list;
         }
         return null;
+    }
+
+    Boolean exist(Animal anim){
+        return vectorToAnimals.get(anim.getPosition()) != null && vectorToAnimals.get(anim.getPosition()).contains(anim);
     }
 }

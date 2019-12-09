@@ -3,7 +3,7 @@ package logic;
 import java.util.*;
 
 public class Gene {
-    private ArrayList<Integer> genoType;
+    final public ArrayList<Integer> genoType;
 
     Gene() {
         genoType = new ArrayList<Integer>(
@@ -11,17 +11,11 @@ public class Gene {
 
     }
 
-    Gene(ArrayList<Integer> array, boolean possibleScaling) {
+    Gene(ArrayList<Integer> array) {
         if (array.size() == 32) {
-            Collections.sort(array);
-            genoType = array;
+            genoType = makeAllMovesExist(array);
         } else {
-            if (possibleScaling) {
-                Collections.sort(array);
-                genoType=scaling(array);
-            } else {
-                throw new IllegalArgumentException("Size of array is not equal to 32 " + array.size());
-            }
+            throw new IllegalArgumentException("Size of array is not equal to 32 " + array.size());
         }
     }
 
@@ -38,60 +32,58 @@ public class Gene {
         return Arrays.equals(this.genoType.stream().mapToInt(i -> i).toArray(), that.genoType.stream().mapToInt(i -> i).toArray());
     }
 
-    ArrayList<Integer> getNPartsFromgenDivedOnThreeParts(int n) {
+    Gene getChildrenGene(Gene secondParentGene) {
         int endFirstPart = (int) Math.round(Math.random() * 29) + 1;
         int endSecondPart = (int) Math.round(Math.random() * (31 - endFirstPart)) + endFirstPart;
 
-        ArrayList<List<Integer>> partedGene = new ArrayList<List<Integer>>();
+        ArrayList<ArrayList<Integer>> genes = new ArrayList<ArrayList<Integer>>();
+        genes.add(genoType);
+        genes.add(secondParentGene.genoType);
         ArrayList<Integer> result = new ArrayList<Integer>();
 
-        partedGene.add(genoType.subList(0,endFirstPart));
-        partedGene.add(genoType.subList(endFirstPart,endSecondPart));
-        partedGene.add(genoType.subList(endSecondPart,32));
+        int rand = (int) Math.round(Math.random());
+        int i = rand;
 
-        int randomPick = (int) Math.round(Math.random()*2);
-
-        result.addAll(partedGene.get(randomPick));
-
-        if(n==2){
-            int secondRandomPick = (int) Math.round(Math.random()*2);
-            while(randomPick==secondRandomPick){
-                secondRandomPick = (int) Math.round(Math.random()*2);
-            }
-            result.addAll(partedGene.get(secondRandomPick));
+        result.addAll(genes.get(rand).subList(0, endFirstPart));
+        rand = (int) Math.round(Math.random());
+        i += rand;
+        result.addAll(genes.get(rand).subList(endFirstPart, endSecondPart));
+        if (i == 2) {
+            result.addAll(genes.get(0).subList(endSecondPart, 32));
+        }
+        if (i == 0) {
+            result.addAll(genes.get(1).subList(endSecondPart, 32));
+        } else {
+            rand = (int) Math.round(Math.random());
+            result.addAll(genes.get(1).subList(endSecondPart, 32));
         }
 
-        return result;
+        return new Gene(result);
     }
 
-
-    ArrayList<Integer> scaling(ArrayList<Integer> array){
-        ArrayList<Double> probabilityOfMove = new ArrayList<Double>();
-        for(int i=0;i<8;i++){
-            probabilityOfMove.add(0.0);
+    ArrayList<Integer> makeAllMovesExist(ArrayList<Integer> possibleGene) {
+        Collections.sort(possibleGene);
+        int[] probabilityOfMove = new int[8];
+        for (Integer elem : possibleGene) {
+            probabilityOfMove[elem]++;
         }
-        for(Integer elem : array){
-            probabilityOfMove.set(elem,probabilityOfMove.get(elem)+1);
-        }
-        int sum=0;
-        for (Double elem : probabilityOfMove){
-            if(elem==0){
-                elem+=1;
-            }
-            sum+=elem;
-        }
-        for(Double elem : probabilityOfMove){
-            elem/=sum;
-        }
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        for(int i=0;i<8;i++){
-            for(int j=0;j<probabilityOfMove.get(i)*32;j++){
-                result.add(i);
+        int random;
+        for (int elem : probabilityOfMove) {
+            while (elem == 0) {
+                random = (int) Math.round(Math.random() * 7);
+                if(probabilityOfMove[random]>1){
+                    probabilityOfMove[random]--;
+                    elem++;
+                }
             }
         }
-        Collections.sort(result);
-
-        return result;
+        possibleGene.clear();
+        for(int elem : probabilityOfMove){
+            for(int j=elem;j>0;j--){
+                possibleGene.add(elem);
+            }
+        }
+        return possibleGene;
     }
-
 }
+
