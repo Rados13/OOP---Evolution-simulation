@@ -11,7 +11,6 @@ public class Jungle extends AbstractWorldMap {
     private double moveEnergy;
     private double plantEnergy;
     private double jungleRatio;
-
     Jungle(int x, int y, double moveEnergy) {
         UpperRight = UpperRight.add(new Vector2d(x - 1, y - 1));
         this.moveEnergy = moveEnergy;

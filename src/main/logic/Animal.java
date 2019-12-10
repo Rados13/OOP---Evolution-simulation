@@ -106,14 +106,14 @@ public class Animal {
         if (x < 0) {
             x = map.getUpperRight().x;
         }
-        if (x > map.getUpperRight().x) {
+        if (x >= map.getUpperRight().x) {
             x = 0;
         }
         if (y < 0) {
             y = map.getUpperRight().y;
         }
 
-        if (y > map.getUpperRight().y) {
+        if (y >= map.getUpperRight().y) {
             y = 0;
         }
         return new Vector2d(x, y);

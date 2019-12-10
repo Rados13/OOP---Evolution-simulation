@@ -85,7 +85,7 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
         if (source == turnButton) {
             if (textField.getText().equals(""))
                 throw new IllegalArgumentException(textField.getText() + " is not number");
-            listener.makeNMoves(Integer.parseInt(textField.getText()));
+            listener.makeNTurn(Integer.parseInt(textField.getText()));
         }
 
         if (source == deadthButton) {

@@ -34,9 +34,26 @@ public class SimulationPanel extends JPanel {
         }
 
         @Override
-        public void makeNMoves(int n) {
-            World.makeNTurns(map, n);
-            refreshData();
+        public void makeNTurn(int n) {
+            ActionListener listener = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    World.makeTurn(map);
+                    refreshData();
+                }
+            };
+            Timer timer = new Timer(1000,listener);
+            timer.setRepeats(true);
+
+            ActionListener listenerEnd = new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    timer.stop();
+                }
+            };
+            Timer timerEnd = new Timer(1000*(n+1),listenerEnd);
+            timer.start();
+            timerEnd.setRepeats(false);
+            timerEnd.start();
         }
 
         @Override
@@ -71,7 +88,7 @@ public class SimulationPanel extends JPanel {
 
         private void refreshData() {
             mapDrawing.repaint();
-            if(animalFrame!=null)animalFrame.refresh(map);
+            if (animalFrame != null) animalFrame.refresh(map);
         }
 
     }
@@ -97,7 +114,7 @@ public class SimulationPanel extends JPanel {
         this.mainListener = listener;
         this.simulationListener = new simulationListener();
         buttonsPanel = new ButtonsSimulationPanel(simulationListener);
-        gc.gridx=1;
+        gc.gridx = 1;
         gc.weightx = 1;
         gc.weighty = 1;
         gc.fill = GridBagConstraints.NONE;

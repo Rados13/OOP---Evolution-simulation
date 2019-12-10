@@ -6,6 +6,7 @@ import java.util.List;
 
 public class World {
 
+
     public static Jungle getJungle(){
         try {
             ArrayList<Double> parameters = ReadJson.readFileWorld();
@@ -45,14 +46,12 @@ public class World {
         map.generateGrassForOneDay();
     }
 
-    public static void makeNTurns(Jungle map,int n){
-        for(int i=1;i<n;i++){
+    public static void makeTurn(Jungle map){
             map.clearMapOfDeadths();
             map.run();
             map.eating();
             map.reproduction();
             map.generateGrassForOneDay();
-        }
     }
 
 }
