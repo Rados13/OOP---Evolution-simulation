@@ -1,14 +1,17 @@
 package logic;
 
+import java.awt.List;
 import java.util.*;
 
 public class Gene {
     final public ArrayList<Integer> genoType;
 
     Gene() {
-        genoType = new ArrayList<Integer>(
-                Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7));
-
+        ArrayList<Integer> randomGen = new ArrayList<Integer>();
+        for (int i = 0; i < 32; i++) {
+            randomGen.add((int) Math.round(Math.random() * 7));
+        }
+        genoType = makeAllMovesExist(randomGen);
     }
 
     Gene(ArrayList<Integer> array) {
@@ -68,19 +71,21 @@ public class Gene {
             probabilityOfMove[elem]++;
         }
         int random;
-        for (int elem : probabilityOfMove) {
-            while (elem == 0) {
+        for (int i = 0; i < probabilityOfMove.length; i++) {
+            while (probabilityOfMove[i] == 0) {
                 random = (int) Math.round(Math.random() * 7);
-                if(probabilityOfMove[random]>1){
+                if (probabilityOfMove[random] > 1) {
                     probabilityOfMove[random]--;
-                    elem++;
+                    probabilityOfMove[i]++;
                 }
             }
         }
+
+
         possibleGene.clear();
-        for(int elem : probabilityOfMove){
-            for(int j=elem;j>0;j--){
-                possibleGene.add(elem);
+        for (int i = 0; i < probabilityOfMove.length; i++) {
+            for (int j = probabilityOfMove[i]; j > 0; j--) {
+                possibleGene.add(i);
             }
         }
         return possibleGene;

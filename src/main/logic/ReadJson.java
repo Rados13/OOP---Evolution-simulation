@@ -81,11 +81,6 @@ public class ReadJson {
             result.add(Double.parseDouble(numberOfGrass.toString()));
         } else result.add((double) numberOfGrass);
 
-        Object numberOfAnimals = world.get("numberOfAnimals");
-        if (numberOfAnimals instanceof Long) {
-            result.add(Double.parseDouble(numberOfAnimals.toString()));
-        } else result.add((double) numberOfAnimals);
-
         return result;
 
     }
@@ -98,7 +93,6 @@ public class ReadJson {
         return parseDescriptionObject(getJsonObject());
 
     }
-
 
     private static ArrayList<ArrayList<String>> parseDescriptionObject(JSONObject world) {
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
@@ -143,15 +137,10 @@ public class ReadJson {
         return (int)Math.round(Double.parseDouble(getJsonObject().get("scaleOfDraw").toString()));
     }
 
-
-    public static ArrayList<Integer> getGene() {
+    public static int getNumberOfAnimals(){
         if(getJsonObject()==null)throw new NullPointerException();
-        String []array = getJsonObject().get("genoTypeOfAnimal").toString().split(", ");
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        for(String elem : array){
-            result.add(Integer.parseInt(elem));
-        }
-        return result;
+        return (int)Math.round(Double.parseDouble(getJsonObject().get("numberOfAnimals").toString()));
+
     }
 
 }

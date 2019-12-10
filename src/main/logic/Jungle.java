@@ -29,7 +29,7 @@ public class Jungle extends AbstractWorldMap {
         this.jungleRatio = parameters.get(5);
 
 
-        if (parameters.get(6) < 0 || parameters.get(6) >= parameters.get(0).intValue() * parameters.get(1).intValue()) {
+        if (parameters.get(6).intValue() < 0 || parameters.get(6) >= parameters.get(0).intValue() * parameters.get(1).intValue()) {
             throw new IllegalArgumentException(parameters.get(6) + " is not legal number of grass");
         }
         int n = (int) parameters.get(6).longValue();

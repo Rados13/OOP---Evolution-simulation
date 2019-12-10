@@ -1,12 +1,1 @@
-{ 
-  "width": 200,
-  "height": 100,
-  "startEnergy": 100.0,
-  "moveEnergy": 10,
-  "plantEnergy": 50,
-  "jungleRatio": 0.5,
-  "numberOfGrass": 100,
-  "scaleOfDraw": 40,
-  "numberOfAnimals": 2,
-  "genoTypeOfAnimal": "0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7"
-}
+{"jungleRatio":0.5,"moveEnergy":10.0,"scaleOfDraw":40.0,"width":30.0,"plantEnergy":50.0,"startEnergy":100.0,"numberOfGrass":50.0,"numberOfAnimals":2.0,"height":30.0}

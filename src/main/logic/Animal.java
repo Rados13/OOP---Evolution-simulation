@@ -12,23 +12,23 @@ public class Animal {
     private int id;
 
 
-    Animal(AbstractWorldMap map,double startEnergy,Gene genoType) {
-        this.position = new Vector2d().generatePosition(0,0,map);
+    Animal(AbstractWorldMap map, double startEnergy) {
+        this.position = new Vector2d().generatePosition(0, 0, map);
         this.map = map;
-        this.energy=startEnergy;
+        this.energy = startEnergy;
         this.map.place(this);
-        this.orientation = OptionsParser.parse((int)Math.round(Math.random()*7));
+        this.orientation = OptionsParser.parse((int) Math.round(Math.random() * 7));
         this.id = map.getNextId();
-        this.gen=new Gene();
+        this.gen = new Gene();
     }
 
-    Animal(AbstractWorldMap map,double startEnergy,int x,int y,Gene genoType) {
-        this.position = new Vector2d(x,y);
+    Animal(AbstractWorldMap map, double startEnergy, int x, int y, Gene genoType) {
+        this.position = new Vector2d(x, y);
         this.map = map;
-        this.energy=startEnergy;
+        this.energy = startEnergy;
         this.id = map.getNextId();
         this.map.place(this);
-        this.gen=genoType;
+        this.gen = genoType;
     }
 
     public String toString() {
@@ -56,11 +56,11 @@ public class Animal {
     public void move() {
         int howManyRotates = gen.getMoveFromGene();
         MapDirection changingOrientation = getOrientation();
-        for(int i=0;i<howManyRotates;i++){
+        for (int i = 0; i < howManyRotates; i++) {
             changingOrientation = changingOrientation.next();
         }
         Vector2d addedVector = this.position.add(changingOrientation.toUnitVector());
-        map.positionChanged(this,futurePosition(addedVector),changingOrientation);
+        map.positionChanged(this, futurePosition(addedVector), changingOrientation);
     }
 
     @Override
@@ -68,43 +68,55 @@ public class Animal {
         if (this == other) return true;
         if (!(other instanceof Animal)) return false;
         Animal that = (Animal) other;
-        return  this.id==that.id && this.position == that.position && this.energy==that.energy
+        return this.id == that.id && this.position == that.position && this.energy == that.energy
                 && this.gen.equals(that.gen);
     }
 
-    public int getId() {return this.id;}
-    public double getEnergy() {return this.energy;}
-    public Gene getGen(){return this.gen;}
+    public int getId() {
+        return this.id;
+    }
+
+    public double getEnergy() {
+        return this.energy;
+    }
+
+    public Gene getGen() {
+        return this.gen;
+    }
+
     public Vector2d getPosition() {
         return this.position;
     }
+
     public void setPosition(Vector2d newPosition) {
-        this.position=newPosition;
+        this.position = newPosition;
     }
+
     public MapDirection getOrientation() {
         return this.orientation;
     }
+
     public void setOrientation(MapDirection orientation) {
-        this.orientation=orientation;
+        this.orientation = orientation;
     }
 
-    private Vector2d futurePosition(Vector2d addedVector){
+    private Vector2d futurePosition(Vector2d addedVector) {
         int x = addedVector.x;
         int y = addedVector.y;
-        if(x<0){
-            x=map.getUpperRight().x;
+        if (x < 0) {
+            x = map.getUpperRight().x;
         }
-        if(x>map.getUpperRight().x){
-            x=0;
+        if (x > map.getUpperRight().x) {
+            x = 0;
         }
-        if(y<0){
-            y=map.getUpperRight().y;
+        if (y < 0) {
+            y = map.getUpperRight().y;
         }
 
-        if(y>map.getUpperRight().y){
-            y=0;
+        if (y > map.getUpperRight().y) {
+            y = 0;
         }
-        return new Vector2d(x,y);
+        return new Vector2d(x, y);
     }
 
 
