@@ -8,7 +8,6 @@ abstract class AbstractWorldMap implements IWorldMap {
     int numberOfAnimals=0;
     int moveEnergy = 50;
 
-
     public String toString() {
         return new MapVisualizer(this).draw(getLowerLeft(), getUpperRight());
     }

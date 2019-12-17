@@ -11,16 +11,18 @@ public class Jungle extends AbstractWorldMap {
     private double moveEnergy;
     private double plantEnergy;
     private double jungleRatio;
-    Jungle(int x, int y, double moveEnergy) {
+
+    Jungle(int x, int y, double moveEnergy, int id) {
         UpperRight = UpperRight.add(new Vector2d(x - 1, y - 1));
         this.moveEnergy = moveEnergy;
+        this.numberOfAnimals = id;
     }
 
     Jungle(ArrayList<Double> parameters) {
         if (Math.round(parameters.get(0)) < 0 || Math.round(parameters.get(1)) < 0) {
             throw new IllegalArgumentException(Math.round(parameters.get(0)) + "  " + Math.round(parameters.get(1)) + " are not legal map size");
         }
-        UpperRight = UpperRight.add(new Vector2d((int)Math.round(parameters.get(0)) - 1, (int)Math.round(parameters.get(1)) - 1));
+        UpperRight = UpperRight.add(new Vector2d((int) Math.round(parameters.get(0)) - 1, (int) Math.round(parameters.get(1)) - 1));
 
         this.startEnergy = parameters.get(2);
         this.moveEnergy = parameters.get(3);
@@ -37,6 +39,10 @@ public class Jungle extends AbstractWorldMap {
         }
         while (fields.size() < n) {
             generateGrassAllMap();
+        }
+
+        for(int i=0;i<parameters.get(7);i++) {
+            new Animal(this, startEnergy);
         }
     }
 
@@ -56,8 +62,8 @@ public class Jungle extends AbstractWorldMap {
     }
 
     @Override
-    void positionChanged(Animal anim,Vector2d newPosition,MapDirection newOrientation) {
-        status.positionChanged(anim,newPosition,newOrientation,anim.energy-moveEnergy);
+    void positionChanged(Animal anim, Vector2d newPosition, MapDirection newOrientation) {
+        status.positionChanged(anim, newPosition, newOrientation, anim.energy - moveEnergy);
     }
 
     void clearMapOfDeadths() {
@@ -66,10 +72,10 @@ public class Jungle extends AbstractWorldMap {
                 status.removeElement(anim);
             }
         }
-        animals=animals.stream().filter(anim -> status.exist(anim)).collect(Collectors.toCollection(LinkedList::new));
+        animals = animals.stream().filter(anim -> status.exist(anim)).collect(Collectors.toCollection(LinkedList::new));
     }
 
-    void generateGrassForOneDay(){
+    void generateGrassForOneDay() {
         generateGrassCenter();
         generateGrassAllMap();
     }
@@ -90,23 +96,20 @@ public class Jungle extends AbstractWorldMap {
 
     void reproduction() {
 
-        Jungle mapForChildren = new Jungle(UpperRight.x, UpperRight.y, 0);
+
         ArrayList<Animal> usedParents = new ArrayList<Animal>();
-        for (Vector2d vector : status.vectorToAnimals.keySet()) {
+        for (Vector2d vector : new ArrayList<Vector2d>(status.vectorToAnimals.keySet())) {
             List<Animal> parents = status.getParents(vector, startEnergy / 2);
             if (parents != null) {
                 usedParents.addAll(parents);
-                Animal child = new Animal(mapForChildren, parents.get(0).energy / 4 + parents.get(1).energy / 4, vector.x, vector.y, childrenGene(parents));
-                child.move();
+                Vector2d position = Vector2d.generateFreeSpace(vector,this);
+                Animal child = new Animal(this, parents.get(0).energy / 4 + parents.get(1).energy / 4, position.x, position.y, childrenGene(parents));
             }
         }
-        for (Animal elem : mapForChildren.animals) {
-            status.addElement(elem);
-            animals.add(elem);
-        }
-        for (Animal elem : usedParents) {
-            status.energyChanged(elem,elem.energy*3/4);
 
+
+        for (Animal elem : usedParents) {
+            status.energyChanged(elem, elem.energy - this.startEnergy / 2);
         }
 
     }
@@ -134,10 +137,13 @@ public class Jungle extends AbstractWorldMap {
         fields.put(vector, new Grass(vector));
     }
 
-    public ArrayList<Vector2d> getFields(){
+    public ArrayList<Vector2d> getFields() {
         return new ArrayList<>(fields.keySet());
     }
-    public ArrayList<Animal> getAnimals(){
+
+    public ArrayList<Animal> getAnimals() {
         return new ArrayList<Animal>(animals);
     }
+
+
 }

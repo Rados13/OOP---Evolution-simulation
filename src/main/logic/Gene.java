@@ -46,45 +46,47 @@ public class Gene {
 
         int rand = (int) Math.round(Math.random());
         int i = rand;
-
         result.addAll(genes.get(rand).subList(0, endFirstPart));
+
         rand = (int) Math.round(Math.random());
         i += rand;
         result.addAll(genes.get(rand).subList(endFirstPart, endSecondPart));
+
         if (i == 2) {
             result.addAll(genes.get(0).subList(endSecondPart, 32));
-        }
-        if (i == 0) {
+        } else if (i == 0) {
             result.addAll(genes.get(1).subList(endSecondPart, 32));
         } else {
             rand = (int) Math.round(Math.random());
-            result.addAll(genes.get(1).subList(endSecondPart, 32));
+            result.addAll(genes.get(rand).subList(endSecondPart, 32));
         }
+
 
         return new Gene(result);
     }
 
     ArrayList<Integer> makeAllMovesExist(ArrayList<Integer> possibleGene) {
         Collections.sort(possibleGene);
-        int[] probabilityOfMove = new int[8];
+        ArrayList<Integer> probabilityOfMove = new ArrayList<Integer>(8);
+        for (int i = 0; i < 8; i++) {
+            probabilityOfMove.add(0);
+        }
         for (Integer elem : possibleGene) {
-            probabilityOfMove[elem]++;
+            probabilityOfMove.set(elem, probabilityOfMove.get(elem) + 1);
         }
         int random;
-        for (int i = 0; i < probabilityOfMove.length; i++) {
-            while (probabilityOfMove[i] == 0) {
+        for (int i = 0; i < probabilityOfMove.size(); i++) {
+            while (probabilityOfMove.get(i) == 0) {
                 random = (int) Math.round(Math.random() * 7);
-                if (probabilityOfMove[random] > 1) {
-                    probabilityOfMove[random]--;
-                    probabilityOfMove[i]++;
+                if (probabilityOfMove.get(random) > 1) {
+                    probabilityOfMove.set(random, probabilityOfMove.get(random) - 1);
+                    probabilityOfMove.set(i, probabilityOfMove.get(i) + 1);
                 }
             }
         }
-
-
         possibleGene.clear();
-        for (int i = 0; i < probabilityOfMove.length; i++) {
-            for (int j = probabilityOfMove[i]; j > 0; j--) {
+        for (int i = 0; i < probabilityOfMove.size(); i++) {
+            for (int j = probabilityOfMove.get(i); j > 0; j--) {
                 possibleGene.add(i);
             }
         }

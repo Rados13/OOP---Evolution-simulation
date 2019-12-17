@@ -41,7 +41,8 @@ public class SimulationPanel extends JPanel {
                     refreshData();
                 }
             };
-            Timer timer = new Timer(1000,listener);
+            int time=250;
+            Timer timer = new Timer(time,listener);
             timer.setRepeats(true);
 
             ActionListener listenerEnd = new ActionListener() {
@@ -50,7 +51,7 @@ public class SimulationPanel extends JPanel {
                     timer.stop();
                 }
             };
-            Timer timerEnd = new Timer(1000*(n+1),listenerEnd);
+            Timer timerEnd = new Timer(time*(n+1),listenerEnd);
             timer.start();
             timerEnd.setRepeats(false);
             timerEnd.start();

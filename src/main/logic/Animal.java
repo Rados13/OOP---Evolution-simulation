@@ -13,7 +13,7 @@ public class Animal {
 
 
     Animal(AbstractWorldMap map, double startEnergy) {
-        this.position = new Vector2d().generatePosition(0, 0, map);
+        this.position = Vector2d.generatePosition(0, 0, map);
         this.map = map;
         this.energy = startEnergy;
         this.map.place(this);

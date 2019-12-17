@@ -15,9 +15,7 @@ public class World {
             }
             int startEnergy = parameters.get(2).intValue();
             Jungle map = new Jungle(parameters);
-            for(int i=0;i<ReadJson.getNumberOfAnimals();i++) {
-                new Animal(map, startEnergy);
-            }
+
             return map;
         }catch (IllegalArgumentException | ExceptionInInitializerError ex) {
             System.out.println(ex);

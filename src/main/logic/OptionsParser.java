@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OptionsParser {
@@ -34,6 +35,14 @@ public class OptionsParser {
                 throw new IllegalArgumentException(arg + " is not legal move specification");
         }
         return result;
+    }
+
+    public static ArrayList<MapDirection> getAllDirectionsVectors(){
+        ArrayList<MapDirection> directions = new ArrayList<MapDirection>();
+        for(int i=0;i<8;i++){
+            directions.add(parse(i));
+        }
+        return directions;
     }
 
 }

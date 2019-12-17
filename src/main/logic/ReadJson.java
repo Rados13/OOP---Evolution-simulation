@@ -81,6 +81,11 @@ public class ReadJson {
             result.add(Double.parseDouble(numberOfGrass.toString()));
         } else result.add((double) numberOfGrass);
 
+        Object numberOfAnimals = world.get("numberOfAnimals");
+        if (numberOfGrass instanceof Long) {
+            result.add(Double.parseDouble(numberOfAnimals.toString()));
+        } else result.add((double) numberOfAnimals);
+
         return result;
 
     }
@@ -137,10 +142,15 @@ public class ReadJson {
         return (int)Math.round(Double.parseDouble(getJsonObject().get("scaleOfDraw").toString()));
     }
 
+
+    public static double getJungleRatio() {
+        if(getJsonObject()==null)throw new NullPointerException();
+        return Double.parseDouble(getJsonObject().get("jungleRatio").toString());
+    }
+
     public static int getNumberOfAnimals(){
         if(getJsonObject()==null)throw new NullPointerException();
         return (int)Math.round(Double.parseDouble(getJsonObject().get("numberOfAnimals").toString()));
-
     }
 
 }

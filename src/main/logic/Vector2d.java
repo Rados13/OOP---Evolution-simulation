@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Vector2d {
@@ -72,7 +73,7 @@ public class Vector2d {
         return new Vector2d(-this.x, -this.y);
     }
 
-    Vector2d generatePosition(int paramX, int paramY, AbstractWorldMap map) {
+    public static Vector2d generatePosition(int paramX, int paramY, AbstractWorldMap map) {
         int n = map.getUpperRight().x * map.getUpperRight().y;
         while (n > 0) {
             int x, y;
@@ -88,5 +89,22 @@ public class Vector2d {
             n--;
         }
         throw new ExceptionInInitializerError("Nie udalo sie znalezc pozycji dla zwierzecia");
+    }
+
+    public static Vector2d generateFreeSpace(Vector2d pos, AbstractWorldMap map) {
+        ArrayList<Vector2d> positions = new ArrayList<Vector2d>();
+        OptionsParser.getAllDirectionsVectors().forEach(direction -> positions.add(direction.toUnitVector().add(pos)));
+        ArrayList<Vector2d> result = new ArrayList<>(positions);
+        for (Vector2d elem : positions) {
+            if (!map.canMoveTo(elem)) {
+                result.remove(elem);
+            }
+        }
+        if (result.size() == 0) {
+            return Vector2d.generatePosition(0, 0, map);
+        }
+        else{
+            return result.get((int)(Math.random()*(result.size()-1)));
+        }
     }
 }

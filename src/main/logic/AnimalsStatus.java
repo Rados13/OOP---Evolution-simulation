@@ -26,20 +26,22 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         }
     }
 
-    Map<Vector2d, ArrayList<Animal>> vectorToAnimals = new LinkedHashMap<>();
+    Map<Vector2d, ArrayList<Animal>> vectorToAnimals = new HashMap<>();
 
-    public void positionChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation,double newEnergy) {
+    public void positionChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation, double newEnergy) {
         removeElement(prevState);
         prevState.setPosition(newPosition);
         prevState.setOrientation(newOrientation);
-        prevState.energy=newEnergy;
+        prevState.energy = newEnergy;
         addElement(prevState);
     }
 
-    public void energyChanged(Animal prevState, double newEnergy){
-        removeElement(prevState);
-        prevState.energy=newEnergy;
-        addElement(prevState);
+    public void energyChanged(Animal prevState, double newEnergy) {
+        ArrayList<Animal> array = vectorToAnimals.get(prevState.getPosition());
+//        array.forEach(animal -> System.out.println(animal.getPosition()));
+        int idx = array.indexOf(prevState);
+        prevState.energy = newEnergy;
+        array.set(idx,prevState);
     }
 
     void addElement(Animal elem) {
@@ -55,7 +57,6 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
 
     void removeElement(Animal elem) {
         ArrayList<Animal> array = vectorToAnimals.get(elem.getPosition());
-
         if (!array.removeAll(Collections.singleton(elem))) {
             throw new IllegalArgumentException("Brak synchronizacji elementow");
         }
@@ -80,7 +81,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
     List<Animal> getParents(Vector2d vector, double reproductionEnergy) {
         ArrayList<Animal> array = vectorToAnimals.get(vector);
         if (array.size() <= 0) throw new IllegalArgumentException(vector + " on this position none animal exist");
-        if(array.size()<2){
+        if (array.size() < 2) {
             return null;
         }
         array.sort(new CompareByEnergy());
@@ -93,7 +94,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         return null;
     }
 
-    Boolean exist(Animal anim){
+    Boolean exist(Animal anim) {
         return vectorToAnimals.get(anim.getPosition()) != null && vectorToAnimals.get(anim.getPosition()).contains(anim);
     }
 }
