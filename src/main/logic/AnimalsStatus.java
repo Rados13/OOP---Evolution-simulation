@@ -35,7 +35,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         removeElement(prevState);
         prevState.setPosition(newPosition);
         prevState.setOrientation(newOrientation);
-        prevState.energy = newEnergy;
+        prevState.setEnergy(newEnergy);
         addElement(prevState);
     }
 
@@ -50,7 +50,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
     public void energyChange(Animal prevState, double newEnergy) {
         ArrayList<Animal> array = vectorToAnimals.get(prevState.getPosition());
         int idx = array.indexOf(prevState);
-        prevState.energy = newEnergy;
+        prevState.setEnergy(newEnergy);
         array.set(idx,prevState);
     }
 
@@ -79,6 +79,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
 
     List<Animal> getAnimalWithHighestEnergy(Vector2d vector) {
         ArrayList<Animal> array = vectorToAnimals.get(vector);
+        if(array == null) return null;
         array.sort(new CompareByEnergy());
         List<Animal> highestEnergyAnimals = new ArrayList<Animal>();
         for (int i = array.size() - 1; i >= 0 && array.get(i).energy == array.get(array.size() - 1).energy; i--) {

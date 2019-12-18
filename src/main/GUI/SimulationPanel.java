@@ -18,6 +18,7 @@ public class SimulationPanel extends JPanel {
     private Jungle map;
     private IChangePanelListener mainListener;
     private ISimulationChangeListener simulationListener;
+    private MarkedAnimalStats markedPanel;
 
     class simulationListener implements ISimulationChangeListener {
 
@@ -59,19 +60,25 @@ public class SimulationPanel extends JPanel {
 
         @Override
         public void start() {
-            timer = new Timer(100, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                }
-            });
-            timer.addActionListener(new ActionListenerForNTurn(timer));
-            timer.start();
+            if (timer == null) {
+                timer = new Timer(100, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                    }
+                });
 
+                timer.addActionListener(new ActionListenerForNTurn(timer));
+                timer.start();
+            }else{
+                timer.start();
+            }
         }
+
 
         @Override
         public void stop() {
             if (timer != null) timer.stop();
+            refreshData();
         }
 
         @Override
@@ -96,6 +103,24 @@ public class SimulationPanel extends JPanel {
             mapDrawing.repaint();
             if (animalFrame != null) animalFrame.refresh(map);
             statistics.refresh(map);
+            markedPanel.refresh();
+        }
+
+        public void refreshMarkedOne() {
+            map.setMarkedOne(mapDrawing.getMarkedOne());
+            mapDrawing.repaint();
+            markedPanel.changeMarkedAnimal(mapDrawing.getMarkedOne());
+        }
+
+        @Override
+        public void highlight() {
+            mapDrawing.highlightAnimalsDominantGenotype();
+            refreshData();
+        }
+
+        @Override
+        public void addNewMap() {
+            
         }
 
     }
@@ -103,20 +128,27 @@ public class SimulationPanel extends JPanel {
 
     public SimulationPanel(IChangePanelListener listener) {
 
+        this.mainListener = listener;
+        this.simulationListener = new simulationListener();
+
         setLayout(new BorderLayout());
 
         map = World.getJungle();
 
-        mapDrawing = new MapPanel(map, ReadJson.getScale());
+        mapDrawing = new MapPanel(map, ReadJson.getScale(), simulationListener);
 
         add(new JScrollPane(mapDrawing), BorderLayout.CENTER);
 
-        this.mainListener = listener;
-        this.simulationListener = new simulationListener();
         buttonsPanel = new ButtonsSimulationPanel(simulationListener);
         add(buttonsPanel, BorderLayout.NORTH);
+
+        JPanel panelEast = new JPanel();
+        panelEast.setLayout(new BorderLayout());
         statistics = new StatisticPanel(map);
-        add(statistics, BorderLayout.EAST);
+        panelEast.add(statistics, BorderLayout.CENTER);
+        markedPanel = new MarkedAnimalStats(map);
+        panelEast.add(markedPanel, BorderLayout.SOUTH);
+        add(panelEast, BorderLayout.EAST);
 
         setVisible(true);
     }

@@ -12,15 +12,14 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
     private JButton startButton;
     private JButton animalsButton;
     private JButton changeParametersButton;
+    private JButton highlightDominantGeneAnimalsButton;
+    private JButton addNewMapButton;
     private ISimulationChangeListener listener;
     private JTextField textField;
 
     ButtonsSimulationPanel(ISimulationChangeListener listener) {
 
         this.listener = listener;
-
-
-
 
 //        setLayout(new GridLayout(1, 5, 10, 0));
         setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
@@ -37,18 +36,26 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
         panel.setLayout(new GridLayout(1, 2));
         turnButton = new JButton("N turn");
         turnButton.addActionListener(this);
-        turnButton.setPreferredSize(new Dimension(25,25));
         panel.add(turnButton);
         textField = new JTextField();
         panel.add(textField);
         add(panel);
 
 
-        animalsButton = new JButton("List of animals");
+        highlightDominantGeneAnimalsButton = new JButton("<html>Highlight dominant genotype animals<html>");
+        highlightDominantGeneAnimalsButton.addActionListener(this);
+        add(highlightDominantGeneAnimalsButton);
+
+        animalsButton = new JButton("<html>List of animals<html>");
         animalsButton.addActionListener(this);
         add(animalsButton);
 
-        changeParametersButton = new JButton("Change parameters");
+
+        addNewMapButton = new JButton("<html>Add second map<html>");
+        addNewMapButton.addActionListener(this);
+        add(addNewMapButton);
+
+        changeParametersButton = new JButton("<html>Change parameters<html>");
         changeParametersButton.addActionListener(this);
         add(changeParametersButton);
 
@@ -82,6 +89,15 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
         if (source == animalsButton) {
             listener.viewAnimalsList();
+        }
+
+        if (source == addNewMapButton) {
+            listener.addNewMap();
+        }
+
+
+        if( source == highlightDominantGeneAnimalsButton){
+            listener.highlight();
         }
 
     }

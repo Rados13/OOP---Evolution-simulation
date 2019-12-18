@@ -6,6 +6,7 @@ abstract class AbstractWorldMap implements IWorldMap {
     LinkedList<Animal> animals = new LinkedList<Animal>();
     AnimalsStatus animalsStatus = new AnimalsStatus();
     GenotypeStatus genesStatus = new GenotypeStatus();
+    AncestorStatus ancestorStatus = new AncestorStatus();
     int numberOfAnimals = 0;
     double moveEnergy;
     int numberOfAge = 0;
@@ -24,8 +25,7 @@ abstract class AbstractWorldMap implements IWorldMap {
         }
         animals.add(anim);
         anim.addObserver(animalsStatus);
-        animalsStatus.addElement(anim);
-        genesStatus.addElement(anim);
+        anim.addObserver(genesStatus);
         return true;
     }
 
@@ -55,7 +55,16 @@ abstract class AbstractWorldMap implements IWorldMap {
     void nextAge(){numberOfAge++;}
     public int getAge() {return numberOfAge;}
     public Genotype getDominantGenotype(){return genesStatus.getDominantGenotype();}
+    public ArrayList<Animal> getAnimalsWithDominantGenotype(){return genesStatus.getAnimalsWithDominantGenotype();}
     public Double getAverageEnergy(){return animalsStatus.getAverageEnergy();}
     public Double getAverageNumberOfChildren(){return animalsStatus.getAverageChildren();}
     public Double getAverageLengthOfLife(){return animalsStatus.getAverageLengthOfLife();}
+    public Animal getAnimalWithHighestEnergy(Vector2d vec) {
+        List<Animal> anim = animalsStatus.getAnimalWithHighestEnergy(vec);
+        if (anim != null) return animalsStatus.getAnimalWithHighestEnergy(vec).get(0);
+        return null;
+    }
+    public void setMarkedOne(Animal markedOne){ancestorStatus.setMarkedOne(markedOne);}
+    public int getNumberOfHeirsOfMarkedOne(){return ancestorStatus.getNumberOfHeirs();}
+    public int getDeadAgeOfMarkedOne(){return ancestorStatus.getDeadAge();}
 }

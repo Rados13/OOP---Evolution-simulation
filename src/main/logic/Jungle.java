@@ -95,21 +95,19 @@ public class Jungle extends AbstractWorldMap {
     }
 
     void reproduction() {
-        ArrayList<Animal> usedParents = new ArrayList<Animal>();
         for (Vector2d vector : new ArrayList<Vector2d>(animalsStatus.vectorToAnimals.keySet())) {
             List<Animal> parents = animalsStatus.getParents(vector, startEnergy / 2);
             if (parents != null) {
-                usedParents.addAll(parents);
                 Vector2d position = Generate.generateFreeSpace(vector, this);
                 Animal child = new Animal(this, parents.get(0).energy / 4 + parents.get(1).energy / 4, position.x, position.y, childrenGene(parents));
+                for (Animal elem : new ArrayList<>(parents)) {
+                    if(ancestorStatus.heirOFMarked(elem))ancestorStatus.addElement(child);
+                    elem.energyChange(elem.energy - this.startEnergy / 2);
+                    elem.newChildren();
+                }
             }
         }
 
-
-        for (Animal elem : usedParents) {
-            elem.energyChange(elem.energy - this.startEnergy / 2);
-            elem.newChildren();
-        }
 
     }
 

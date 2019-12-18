@@ -3,7 +3,7 @@ package logic;
 import java.util.*;
 
 public class Animal {
-    ArrayList<IAnimalStatusChangeObserver> observerList = new ArrayList<>();
+    private ArrayList<IAnimalStatusChangeObserver> observerList = new ArrayList<>();
     private MapDirection orientation = MapDirection.NORTH;
     double energy = 100;
     Genotype gen;
@@ -89,6 +89,7 @@ public class Animal {
 
     void addObserver(IAnimalStatusChangeObserver observer) {
         observerList.add(observer);
+        observer.addElement(this);
     }
 
     @Override
@@ -107,6 +108,8 @@ public class Animal {
     public double getEnergy() {
         return this.energy;
     }
+
+    public void setEnergy(double energy){this.energy = energy;}
 
     public Genotype getGen() {
         return this.gen;
@@ -128,7 +131,7 @@ public class Animal {
         this.orientation = orientation;
     }
 
-    int getNumberOfChildren (){ return this.numberOfChildren; }
+    public int getNumberOfChildren (){ return this.numberOfChildren; }
 
     void newChildren (){this.numberOfChildren++;}
 

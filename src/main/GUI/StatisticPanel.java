@@ -20,11 +20,11 @@ public class StatisticPanel extends JPanel {
 
     public StatisticPanel(Jungle map){
         Border innerBorder = BorderFactory.createTitledBorder("Actual statistics");
-        Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+        Border outerBorder = BorderFactory.createEmptyBorder(2, 2, 2, 2);
         setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-        setPreferredSize(new Dimension(200,500));
+        setPreferredSize(new Dimension(200,200));
 
-        setLayout(new GridLayout(8,1,0,5));
+        setLayout(new GridLayout(7,1,0,0));
         numberOfAge = new JLabel("Number of age: "+Integer.toString(map.getAge()));
         add(numberOfAge);
         numberOfLivingAnimals = new JLabel("Number of animals: "+Integer.toString(map.getAnimals().size()));
