@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 public class SimulationPanel extends JPanel {
 
     private MapPanel mapDrawing;
+    private StatisticPanel statistics;
     private ButtonsSimulationPanel buttonsPanel;
     private Jungle map;
     private IChangePanelListener mainListener;
@@ -20,65 +21,69 @@ public class SimulationPanel extends JPanel {
 
     class simulationListener implements ISimulationChangeListener {
 
+        Timer timer;
+
+        class ActionListenerForNTurn implements ActionListener {
+            int n;
+            Timer timer;
+
+            ActionListenerForNTurn(Timer timer) {
+                this.n = -1;
+                this.timer = timer;
+            }
+
+            ActionListenerForNTurn(int n, Timer timer) {
+                this.n = n;
+                this.timer = timer;
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                World.makeTurn(map);
+                refreshData();
+                if (n > 0) this.n--;
+                if (n == 0) {
+                    timer.stop();
+                }
+
+            }
+        }
+
         ListFrame animalFrame;
 
-        public void goBackToMenu() {
-            mainListener.goBackToMenu();
-            refreshData();
+        @Override
+        public void setParameters() {
+            if (timer != null) timer.stop();
+            mainListener.setParameters();
         }
 
         @Override
-        public void makeMove() {
-            World.moveAllAnimals(map);
-            refreshData();
+        public void start() {
+            timer = new Timer(100, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            timer.addActionListener(new ActionListenerForNTurn(timer));
+            timer.start();
+
+        }
+
+        @Override
+        public void stop() {
+            if (timer != null) timer.stop();
         }
 
         @Override
         public void makeNTurn(int n) {
-            ActionListener listener = new ActionListener(){
-                public void actionPerformed(ActionEvent event){
-                    World.makeTurn(map);
-                    refreshData();
-                }
-            };
-            int time=250;
-            Timer timer = new Timer(time,listener);
-            timer.setRepeats(true);
 
-            ActionListener listenerEnd = new ActionListener() {
+            timer = new Timer(10, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    timer.stop();
                 }
-            };
-            Timer timerEnd = new Timer(time*(n+1),listenerEnd);
+            });
+            timer.addActionListener(new ActionListenerForNTurn(n, timer));
             timer.start();
-            timerEnd.setRepeats(false);
-            timerEnd.start();
-        }
-
-        @Override
-        public void eat() {
-            World.eat(map);
-            refreshData();
-        }
-
-        @Override
-        public void clearDead() {
-            World.clearFromDeadth(map);
-            refreshData();
-        }
-
-        @Override
-        public void reproduction() {
-            World.reproduction(map);
-            refreshData();
-        }
-
-        @Override
-        public void generateGrass() {
-            World.generateGrass(map);
-            refreshData();
         }
 
         @Override
@@ -90,6 +95,7 @@ public class SimulationPanel extends JPanel {
         private void refreshData() {
             mapDrawing.repaint();
             if (animalFrame != null) animalFrame.refresh(map);
+            statistics.refresh(map);
         }
 
     }
@@ -97,33 +103,21 @@ public class SimulationPanel extends JPanel {
 
     public SimulationPanel(IChangePanelListener listener) {
 
-        setLayout(new GridBagLayout());
+        setLayout(new BorderLayout());
 
         map = World.getJungle();
 
         mapDrawing = new MapPanel(map, ReadJson.getScale());
 
-        GridBagConstraints gc = new GridBagConstraints();
-        gc.weightx = 100;
-        gc.weighty = 100;
-        gc.fill = GridBagConstraints.BOTH;
-        gc.anchor = GridBagConstraints.CENTER;
-        JScrollPane scroll = new JScrollPane(mapDrawing);
-
-        add(scroll, gc);
+        add(new JScrollPane(mapDrawing), BorderLayout.CENTER);
 
         this.mainListener = listener;
         this.simulationListener = new simulationListener();
         buttonsPanel = new ButtonsSimulationPanel(simulationListener);
-        gc.gridx = 1;
-        gc.weightx = 1;
-        gc.weighty = 1;
-        gc.fill = GridBagConstraints.NONE;
-        gc.anchor = GridBagConstraints.EAST;
-        add(buttonsPanel, gc);
+        add(buttonsPanel, BorderLayout.NORTH);
+        statistics = new StatisticPanel(map);
+        add(statistics, BorderLayout.EAST);
 
-
-//        setPreferredSize(new Dimension(600, 600));
         setVisible(true);
     }
 }

@@ -1,19 +1,17 @@
 package logic;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Jungle extends AbstractWorldMap {
     Map<Vector2d, Grass> fields = new LinkedHashMap<Vector2d, Grass>();
-    private Vector2d LowerLeft = new Vector2d(0, 0);
-    private Vector2d UpperRight = new Vector2d(0, 0);
+    private final Vector2d LowerLeft = new Vector2d(0, 0);
+    private final Vector2d UpperRight;
     private double startEnergy;
-    private double moveEnergy;
     private double plantEnergy;
     private double jungleRatio;
 
     Jungle(int x, int y, double moveEnergy, int id) {
-        UpperRight = UpperRight.add(new Vector2d(x - 1, y - 1));
+        UpperRight = new Vector2d(x - 1, y - 1);
         this.moveEnergy = moveEnergy;
         this.numberOfAnimals = id;
     }
@@ -22,7 +20,8 @@ public class Jungle extends AbstractWorldMap {
         if (Math.round(parameters.get(0)) < 0 || Math.round(parameters.get(1)) < 0) {
             throw new IllegalArgumentException(Math.round(parameters.get(0)) + "  " + Math.round(parameters.get(1)) + " are not legal map size");
         }
-        UpperRight = UpperRight.add(new Vector2d((int) Math.round(parameters.get(0)) - 1, (int) Math.round(parameters.get(1)) - 1));
+        UpperRight = new Vector2d((int) Math.round(parameters.get(0)) - 1, (int) Math.round(parameters.get(1)) - 1);
+
 
         this.startEnergy = parameters.get(2);
         this.moveEnergy = parameters.get(3);
@@ -34,14 +33,16 @@ public class Jungle extends AbstractWorldMap {
             throw new IllegalArgumentException(parameters.get(6) + " is not legal number of grass");
         }
         int n = (int) parameters.get(6).longValue();
-        while (fields.size() < n * 3 / 4) {
-            generateGrassCenter();
+
+        for (int i = 0; i < n / 2; i++) {
+            Generate.generateGrassInsideJungle(this);
         }
-        while (fields.size() < n) {
-            generateGrassAllMap();
+        for (int i = n/2; i < n ; i++) {
+            Generate.generateGrassSavanna(this);
         }
 
-        for(int i=0;i<parameters.get(7);i++) {
+
+        for (int i = 0; i < parameters.get(7); i++) {
             new Animal(this, startEnergy);
         }
     }
@@ -61,60 +62,58 @@ public class Jungle extends AbstractWorldMap {
         return null;
     }
 
-    @Override
-    void positionChanged(Animal anim, Vector2d newPosition, MapDirection newOrientation) {
-        status.positionChanged(anim, newPosition, newOrientation, anim.energy - moveEnergy);
+
+    public void run() {
+        for (Animal anim : animals) {
+            anim.move();
+        }
     }
 
     void clearMapOfDeadths() {
-        for (Animal anim : animals) {
-            if (anim.energy <= 0) {
-                status.removeElement(anim);
+        for (Animal anim : new LinkedList<>(animals)) {
+            if(anim.isDead()){
+                animals.remove(anim);
             }
         }
-        animals = animals.stream().filter(anim -> status.exist(anim)).collect(Collectors.toCollection(LinkedList::new));
     }
 
     void generateGrassForOneDay() {
-        generateGrassCenter();
-        generateGrassAllMap();
+        Generate.generateGrassInsideJungle(this);
+        Generate.generateGrassSavanna(this);
     }
 
     void eating() {
-
         for (Animal anim : animals) {
             if (fields.get(anim.getPosition()) != null) {
                 fields.remove(anim.getPosition());
-                List<Animal> list = status.getAnimalWithHighestEnergy(anim.getPosition());
+                List<Animal> list = animalsStatus.getAnimalWithHighestEnergy(anim.getPosition());
                 for (Animal elem : list) {
-                    elem.energy += plantEnergy / list.size();
-                    status.addElement(elem);
+                    elem.energyChange( plantEnergy / list.size());
                 }
             }
         }
     }
 
     void reproduction() {
-
-
         ArrayList<Animal> usedParents = new ArrayList<Animal>();
-        for (Vector2d vector : new ArrayList<Vector2d>(status.vectorToAnimals.keySet())) {
-            List<Animal> parents = status.getParents(vector, startEnergy / 2);
+        for (Vector2d vector : new ArrayList<Vector2d>(animalsStatus.vectorToAnimals.keySet())) {
+            List<Animal> parents = animalsStatus.getParents(vector, startEnergy / 2);
             if (parents != null) {
                 usedParents.addAll(parents);
-                Vector2d position = Vector2d.generateFreeSpace(vector,this);
+                Vector2d position = Generate.generateFreeSpace(vector, this);
                 Animal child = new Animal(this, parents.get(0).energy / 4 + parents.get(1).energy / 4, position.x, position.y, childrenGene(parents));
             }
         }
 
 
         for (Animal elem : usedParents) {
-            status.energyChanged(elem, elem.energy - this.startEnergy / 2);
+            elem.energyChange(elem.energy - this.startEnergy / 2);
+            elem.newChildren();
         }
 
     }
 
-    Gene childrenGene(List<Animal> parents) {
+    Genotype childrenGene(List<Animal> parents) {
         return parents.get(0).gen.getChildrenGene(parents.get(1).gen);
     }
 
@@ -126,17 +125,6 @@ public class Jungle extends AbstractWorldMap {
         return UpperRight;
     }
 
-    private void generateGrassCenter() {
-        Vector2d vector = new Vector2d().generatePosition((int) (getUpperRight().x * jungleRatio),
-                (int) (getUpperRight().y * jungleRatio), this);
-        fields.put(vector, new Grass(vector));
-    }
-
-    private void generateGrassAllMap() {
-        Vector2d vector = new Vector2d().generatePosition(0, 0, this);
-        fields.put(vector, new Grass(vector));
-    }
-
     public ArrayList<Vector2d> getFields() {
         return new ArrayList<>(fields.keySet());
     }
@@ -145,5 +133,40 @@ public class Jungle extends AbstractWorldMap {
         return new ArrayList<Animal>(animals);
     }
 
+    public double getJungleRatio() {
+        return jungleRatio;
+    }
+
+    public int getJungleWidth() {
+        return (int) Math.round(UpperRight.x * jungleRatio);
+    }
+
+    public int getJungleHeight() {
+        return (int) Math.round(UpperRight.y * jungleRatio);
+    }
+
+    public int getJungleBeginX() {
+        return (UpperRight.x - getJungleWidth()) / 2 + 1;
+    }
+
+    public int getJungleBeginY() {
+        return (UpperRight.y - getJungleHeight()) / 2 + 1;
+    }
+
+    public int getSavannaWidth() {
+        return UpperRight.x - getJungleWidth();
+    }
+
+    public int getSavannaHeight() {
+        return UpperRight.y - getJungleHeight();
+    }
+
+    public int getSavannaSecondBeginX() {
+        return UpperRight.x - getSavannaWidth() / 2;
+    }
+
+    public int getSavannaSecondBeginY() {
+        return UpperRight.y - getSavannaHeight() / 2;
+    }
 
 }

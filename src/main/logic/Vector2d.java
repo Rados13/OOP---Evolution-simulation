@@ -72,39 +72,4 @@ public class Vector2d {
     Vector2d opposite() {
         return new Vector2d(-this.x, -this.y);
     }
-
-    public static Vector2d generatePosition(int paramX, int paramY, AbstractWorldMap map) {
-        int n = map.getUpperRight().x * map.getUpperRight().y;
-        while (n > 0) {
-            int x, y;
-            Vector2d vector;
-            x = (int) (Math.random() * (map.getUpperRight().x - paramX));
-            x += paramX * 3 / 4;
-            y = (int) (Math.random() * (map.getUpperRight().y - paramY));
-            y += paramY * 3 / 4;
-            vector = new Vector2d(x, y);
-            if (!map.isOccupied(vector)) {
-                return vector;
-            }
-            n--;
-        }
-        throw new ExceptionInInitializerError("Nie udalo sie znalezc pozycji dla zwierzecia");
-    }
-
-    public static Vector2d generateFreeSpace(Vector2d pos, AbstractWorldMap map) {
-        ArrayList<Vector2d> positions = new ArrayList<Vector2d>();
-        OptionsParser.getAllDirectionsVectors().forEach(direction -> positions.add(direction.toUnitVector().add(pos)));
-        ArrayList<Vector2d> result = new ArrayList<>(positions);
-        for (Vector2d elem : positions) {
-            if (!map.canMoveTo(elem)) {
-                result.remove(elem);
-            }
-        }
-        if (result.size() == 0) {
-            return Vector2d.generatePosition(0, 0, map);
-        }
-        else{
-            return result.get((int)(Math.random()*(result.size()-1)));
-        }
-    }
 }

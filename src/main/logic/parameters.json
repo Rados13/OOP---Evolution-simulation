@@ -5,7 +5,7 @@
   "moveEnergy": 10,
   "plantEnergy": 50,
   "jungleRatio": 0.5,
-  "numberOfGrass": 100,
+  "numberOfGrass": 50,
   "scaleOfDraw": 40,
   "numberOfAnimals": 2
 }

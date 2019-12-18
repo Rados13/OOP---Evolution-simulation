@@ -7,14 +7,11 @@ import java.awt.event.ActionListener;
 
 public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
-    private JButton backButton;
     private JButton turnButton;
-    private JButton eatButton;
-    private JButton moveButton;
-    private JButton deadthButton;
+    private JButton stopButton;
+    private JButton startButton;
     private JButton animalsButton;
-    private JButton reproductionButton;
-    private JButton generateGrassButton;
+    private JButton changeParametersButton;
     private ISimulationChangeListener listener;
     private JTextField textField;
 
@@ -22,65 +19,55 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
         this.listener = listener;
 
-        setLayout(new GridLayout(9, 1, 0, 10));
 
+
+
+//        setLayout(new GridLayout(1, 5, 10, 0));
+        setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+
+        startButton = new JButton("Start");
+        startButton.addActionListener(this);
+        add(startButton);
+
+        stopButton = new JButton("Stop");
+        stopButton.addActionListener(this);
+        add(stopButton);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
         turnButton = new JButton("N turn");
         turnButton.addActionListener(this);
+        turnButton.setPreferredSize(new Dimension(25,25));
         panel.add(turnButton);
         textField = new JTextField();
         panel.add(textField);
         add(panel);
 
-        moveButton = new JButton("Moving");
-        moveButton.addActionListener(this);
-        add(moveButton);
-
-        eatButton = new JButton("Eating");
-        eatButton.addActionListener(this);
-        add(eatButton);
-
-        deadthButton = new JButton("Clear from dead animals");
-        deadthButton.addActionListener(this);
-        add(deadthButton);
-
-        reproductionButton = new JButton("Reproduction");
-        reproductionButton.addActionListener(this);
-        add(reproductionButton);
-
-
-        generateGrassButton = new JButton("Generate Grass");
-        generateGrassButton.addActionListener(this);
-        add(generateGrassButton);
-
-
-        backButton = new JButton("Back");
-        backButton.addActionListener(this);
-        add(backButton);
-
 
         animalsButton = new JButton("List of animals");
         animalsButton.addActionListener(this);
         add(animalsButton);
+
+        changeParametersButton = new JButton("Change parameters");
+        changeParametersButton.addActionListener(this);
+        add(changeParametersButton);
+
+
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
         Object source = event.getSource();
 
-        if (source == backButton) {
-            listener.goBackToMenu();
+
+        if (source == startButton) {
+            listener.start();
         }
 
-        if (source == moveButton) {
-            listener.makeMove();
+        if (source == stopButton) {
+            listener.stop();
         }
 
-        if (source == eatButton) {
-            listener.eat();
-        }
 
         if (source == turnButton) {
             if (textField.getText().equals(""))
@@ -88,22 +75,15 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
             listener.makeNTurn(Integer.parseInt(textField.getText()));
         }
 
-        if (source == deadthButton) {
-            listener.clearDead();
+        if (source == changeParametersButton) {
+            listener.setParameters();
         }
 
-        if (source == reproductionButton) {
-            listener.reproduction();
-        }
-
-
-        if (source == generateGrassButton) {
-            listener.generateGrass();
-        }
 
         if (source == animalsButton) {
             listener.viewAnimalsList();
         }
+
     }
 
 }

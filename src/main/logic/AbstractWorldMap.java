@@ -4,9 +4,11 @@ import java.util.*;
 
 abstract class AbstractWorldMap implements IWorldMap {
     LinkedList<Animal> animals = new LinkedList<Animal>();
-    AnimalsStatus status = new AnimalsStatus();
-    int numberOfAnimals=0;
-    int moveEnergy = 50;
+    AnimalsStatus animalsStatus = new AnimalsStatus();
+    GenotypeStatus genesStatus = new GenotypeStatus();
+    int numberOfAnimals = 0;
+    double moveEnergy;
+    int numberOfAge = 0;
 
     public String toString() {
         return new MapVisualizer(this).draw(getLowerLeft(), getUpperRight());
@@ -21,30 +23,39 @@ abstract class AbstractWorldMap implements IWorldMap {
             throw new IllegalArgumentException(anim.getPosition() + " is ocuppied position");
         }
         animals.add(anim);
-        status.addElement(anim);
+        anim.addObserver(animalsStatus);
+        animalsStatus.addElement(anim);
+        genesStatus.addElement(anim);
         return true;
     }
 
     public void run() {
-        for (Animal anim : animals ) {
+        for (Animal anim : animals) {
             anim.move();
         }
     }
-
 
     public boolean isOccupied(Vector2d position) {
         return objectAt(position) != null;
     }
 
     public Object objectAt(Vector2d position) {
-        return status.objectAt(position);
+        return animalsStatus.objectAt(position);
     }
 
-    abstract void positionChanged(Animal anim,Vector2d newPosition,MapDirection newOrientation);
     abstract Vector2d getLowerLeft();
+
     abstract Vector2d getUpperRight();
 
-    public int getNextId(){
+    double getMoveEnergy(){return moveEnergy;}
+
+    int getNextId() {
         return numberOfAnimals++;
     }
+    void nextAge(){numberOfAge++;}
+    public int getAge() {return numberOfAge;}
+    public Genotype getDominantGenotype(){return genesStatus.getDominantGenotype();}
+    public Double getAverageEnergy(){return animalsStatus.getAverageEnergy();}
+    public Double getAverageNumberOfChildren(){return animalsStatus.getAverageChildren();}
+    public Double getAverageLengthOfLife(){return animalsStatus.getAverageLengthOfLife();}
 }

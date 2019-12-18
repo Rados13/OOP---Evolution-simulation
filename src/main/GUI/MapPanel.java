@@ -15,7 +15,7 @@ public class MapPanel extends JPanel {
 
     Jungle map;
 
-    int ratioOfScale = 40;
+    int ratioOfScale;
 
     MapPanel(Jungle map, int n) {
         this.map = map;
@@ -29,33 +29,37 @@ public class MapPanel extends JPanel {
 
         double jungleRatio = ReadJson.getJungleRatio();
 
-        int x = (int)Math.round(map.getUpperRight().x*(1-jungleRatio))/2;
-        int y = (int)Math.round(map.getUpperRight().y*(1-jungleRatio))/2;
 
         g2d.setColor(new Color(0, 212, 7));
-        g2d.drawRect(x*ratioOfScale,y*ratioOfScale,(map.getUpperRight().x-2*x)*ratioOfScale, (map.getUpperRight().y-2*y)*ratioOfScale);
-        g2d.fillRect(x*ratioOfScale,y*ratioOfScale,(map.getUpperRight().x-2*x)*ratioOfScale, (map.getUpperRight().y-2*y)*ratioOfScale);
+        g2d.fillRect(map.getJungleBeginX() * ratioOfScale, map.getJungleBeginY() * ratioOfScale,
+                map.getJungleWidth() * ratioOfScale, map.getJungleHeight() * ratioOfScale);
 
-        for (int i = 0; i < map.getUpperRight().x * ratioOfScale; i += ratioOfScale) {
-            for (int j = 0; j < map.getUpperRight().y * ratioOfScale; j += ratioOfScale) {
+        for (int i = 0; i <= map.getUpperRight().x * ratioOfScale; i += ratioOfScale) {
+            for (int j = 0; j <= map.getUpperRight().y * ratioOfScale; j += ratioOfScale) {
                 g2d.setColor(new Color(0, 0, 0));
                 g2d.drawRect(i, j, ratioOfScale, ratioOfScale);
             }
         }
 
-
+        BufferedImage grassImage = ReadImage.getGrassBufferedImage();
         for (Vector2d grassPosition : map.getFields()) {
-            g2d.drawImage(ReadImage.getGrassBufferedImage(), grassPosition.x * ratioOfScale, grassPosition.y * ratioOfScale, ratioOfScale, ratioOfScale, new ImageObserver() {
-                @Override
-                public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-                    return false;
-                }
-            });
+            g2d.drawImage(grassImage, grassPosition.x * ratioOfScale, grassPosition.y * ratioOfScale,
+                    ratioOfScale, ratioOfScale, new ImageObserver() {
+                        @Override
+                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                            return false;
+                        }
+                    });
         }
 
-        int i = 0;
+        BufferedImage animalImage = ReadImage.getAnimalBufferedImage();
         for (Animal animal : map.getAnimals()) {
-            g2d.drawImage(ReadImage.getAnimalBufferedImage(), animal.getPosition().x * ratioOfScale, animal.getPosition().y * ratioOfScale, ratioOfScale, ratioOfScale, new ImageObserver() {
+//            g2d.setColor(Color.getHSBColor((float) animal.getEnergy(), 0, (float) animal.getEnergy()));
+//            g2d.fillRect((int) ((animal.getPosition().x ) * ratioOfScale + 0.1 * ratioOfScale),
+//                    (int) ((animal.getPosition().y ) * ratioOfScale + 0.1*ratioOfScale),
+//                    (int) (0.8 * ratioOfScale), (int) (0.8*ratioOfScale));
+            g2d.drawImage(animalImage, animal.getPosition().x * ratioOfScale,
+                    animal.getPosition().y * ratioOfScale, ratioOfScale, ratioOfScale, new ImageObserver() {
                 @Override
                 public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
                     return false;

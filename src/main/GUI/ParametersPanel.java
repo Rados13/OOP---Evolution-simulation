@@ -9,7 +9,7 @@ public class ParametersPanel extends JPanel implements ActionListener {
 
 
     private IChangePanelListener listener;
-    private JButton backButton;
+    private JButton simulationButton;
     private FormPanel form;
 
 
@@ -18,14 +18,14 @@ public class ParametersPanel extends JPanel implements ActionListener {
         setBorder(BorderFactory.createEtchedBorder());
         this.listener = listener;
 
-        backButton = new JButton("Back");
-        backButton.addActionListener(this);
+        simulationButton = new JButton("Go to simulation");
+        simulationButton.addActionListener(this);
 
         form = new FormPanel();
 
         add(form);
 
-        form.addBackButton(backButton);
+        form.addSimulationButton(simulationButton);
     }
 
 
@@ -33,8 +33,8 @@ public class ParametersPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         Object source = event.getSource();
 
-        if (source == backButton) {
-            listener.goBackToMenu();
+        if (source == simulationButton) {
+            listener.startSimulation();
         }
     }
 }

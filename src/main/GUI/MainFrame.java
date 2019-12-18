@@ -18,59 +18,38 @@ public class MainFrame extends JFrame {
         public void startSimulation() {
             frame.simulationPanel = new SimulationPanel(this);
             frame.add(simulationPanel);
-            btnPanel.setVisible(false);
-            frame.remove(btnPanel);
+            parametersPanel.setVisible(false);
+            frame.remove(parametersPanel);
 
-        }
-
-        @Override
-        public void goBackToMenu() {
-            frame.btnPanel = new MenuPanel(this);
-            frame.add(btnPanel);
-            if (parametersPanel != null) {
-                parametersPanel.setVisible(false);
-                frame.remove(parametersPanel);
-            }
-            if (simulationPanel != null) {
-                simulationPanel.setVisible(false);
-                frame.remove(simulationPanel);
-            }
         }
 
         @Override
         public void setParameters() {
             frame.parametersPanel = new ParametersPanel(this);
             frame.add(parametersPanel);
-            btnPanel.setVisible(false);
-            frame.remove(btnPanel);
+            simulationPanel.setVisible(false);
+            frame.remove(simulationPanel);
         }
 
     }
 
 
-    ParametersPanel parametersPanel;
-    SimulationPanel simulationPanel;
-    MenuPanel btnPanel;
-    mainListener listener;
+    private ParametersPanel parametersPanel;
+    private SimulationPanel simulationPanel;
+    private mainListener listener;
 
 
     MainFrame() {
         super("Simulation");
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 500);
+        setSize(800, 600);
         setLocation(50, 50);
         listener = new mainListener(this);
-        btnPanel = new MenuPanel(listener);
 
-        add(btnPanel, BorderLayout.CENTER);
+        parametersPanel = new ParametersPanel(listener);
+        add(parametersPanel, BorderLayout.CENTER);
+
         setVisible(true);
-//        add(simulationPanel,BorderLayout.CENTER);
-//        simulationPanel.setVisible(false);
-//        add(parametersPanel,BorderLayout.CENTER);
-//        parametersPanel.setVisible(false);
-
-//        pack();
-
     }
 }

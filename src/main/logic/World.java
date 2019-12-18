@@ -10,12 +10,11 @@ public class World {
     public static Jungle getJungle(){
         try {
             ArrayList<Double> parameters = ReadJson.readFileWorld();
-            if(parameters.size()<6){
+            if(parameters.size()<7){
                 throw new ExceptionInInitializerError();
             }
             int startEnergy = parameters.get(2).intValue();
             Jungle map = new Jungle(parameters);
-
             return map;
         }catch (IllegalArgumentException | ExceptionInInitializerError ex) {
             System.out.println(ex);
@@ -50,6 +49,7 @@ public class World {
             map.eating();
             map.reproduction();
             map.generateGrassForOneDay();
+            map.nextAge();
     }
 
 }

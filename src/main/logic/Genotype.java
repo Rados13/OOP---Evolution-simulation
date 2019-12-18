@@ -1,20 +1,19 @@
 package logic;
 
-import java.awt.List;
 import java.util.*;
 
-public class Gene {
+public class Genotype {
     final public ArrayList<Integer> genoType;
 
-    Gene() {
-        ArrayList<Integer> randomGen = new ArrayList<Integer>();
+    Genotype() {
+        ArrayList<Integer> randomGens = new ArrayList<Integer>();
         for (int i = 0; i < 32; i++) {
-            randomGen.add((int) Math.round(Math.random() * 7));
+            randomGens.add((int) Math.round(Math.random() * 7));
         }
-        genoType = makeAllMovesExist(randomGen);
+        genoType = makeAllMovesExist(randomGens);
     }
 
-    Gene(ArrayList<Integer> array) {
+    Genotype(ArrayList<Integer> array) {
         if (array.size() == 32) {
             genoType = makeAllMovesExist(array);
         } else {
@@ -27,21 +26,13 @@ public class Gene {
         return genoType.get(rand);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Gene)) return false;
-        Gene that = (Gene) o;
-        return Arrays.equals(this.genoType.stream().mapToInt(i -> i).toArray(), that.genoType.stream().mapToInt(i -> i).toArray());
-    }
-
-    Gene getChildrenGene(Gene secondParentGene) {
+    Genotype getChildrenGene(Genotype secondParentGenotype) {
         int endFirstPart = (int) Math.round(Math.random() * 29) + 1;
         int endSecondPart = (int) Math.round(Math.random() * (31 - endFirstPart)) + endFirstPart;
 
         ArrayList<ArrayList<Integer>> genes = new ArrayList<ArrayList<Integer>>();
         genes.add(genoType);
-        genes.add(secondParentGene.genoType);
+        genes.add(secondParentGenotype.genoType);
         ArrayList<Integer> result = new ArrayList<Integer>();
 
         int rand = (int) Math.round(Math.random());
@@ -62,7 +53,7 @@ public class Gene {
         }
 
 
-        return new Gene(result);
+        return new Genotype(result);
     }
 
     ArrayList<Integer> makeAllMovesExist(ArrayList<Integer> possibleGene) {
@@ -91,6 +82,25 @@ public class Gene {
             }
         }
         return possibleGene;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Genotype)) return false;
+        Genotype that = (Genotype) o;
+        return Arrays.equals(this.genoType.stream().mapToInt(i -> i).toArray(), that.genoType.stream().mapToInt(i -> i).toArray());
+    }
+
+
+    @Override
+    public int hashCode() {
+        int sum = 0;
+        for (int i = 0; i < genoType.size(); i++) {
+            sum+= genoType.get(i)*(i+1);
+        }
+        return sum;
     }
 }
 

@@ -28,7 +28,10 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
 
     Map<Vector2d, ArrayList<Animal>> vectorToAnimals = new HashMap<>();
 
-    public void positionChanged(Animal prevState, Vector2d newPosition, MapDirection newOrientation, double newEnergy) {
+    private int totalLengthOfLifeOfDeadAnimals = 0;
+    private int numberOfDeadAnimals = 0;
+
+    public void positionChange(Animal prevState, Vector2d newPosition, MapDirection newOrientation, double newEnergy) {
         removeElement(prevState);
         prevState.setPosition(newPosition);
         prevState.setOrientation(newOrientation);
@@ -36,15 +39,22 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         addElement(prevState);
     }
 
-    public void energyChanged(Animal prevState, double newEnergy) {
+    @Override
+    public void deadth(Animal prevState) {
+        removeElement(prevState);
+        totalLengthOfLifeOfDeadAnimals += prevState.map.getAge() - prevState.getBirthAge();
+        numberOfDeadAnimals ++;
+    }
+
+
+    public void energyChange(Animal prevState, double newEnergy) {
         ArrayList<Animal> array = vectorToAnimals.get(prevState.getPosition());
-//        array.forEach(animal -> System.out.println(animal.getPosition()));
         int idx = array.indexOf(prevState);
         prevState.energy = newEnergy;
         array.set(idx,prevState);
     }
 
-    void addElement(Animal elem) {
+    public void addElement(Animal elem) {
         ArrayList<Animal> array = vectorToAnimals.get(elem.getPosition());
         if (array == null) {
             array = new ArrayList<Animal>();
@@ -55,7 +65,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         }
     }
 
-    void removeElement(Animal elem) {
+    private void removeElement(Animal elem) {
         ArrayList<Animal> array = vectorToAnimals.get(elem.getPosition());
         if (!array.removeAll(Collections.singleton(elem))) {
             throw new IllegalArgumentException("Brak synchronizacji elementow");
@@ -73,7 +83,6 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         List<Animal> highestEnergyAnimals = new ArrayList<Animal>();
         for (int i = array.size() - 1; i >= 0 && array.get(i).energy == array.get(array.size() - 1).energy; i--) {
             highestEnergyAnimals.add(array.get(i));
-            array.remove(i);
         }
         return highestEnergyAnimals;
     }
@@ -94,7 +103,32 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         return null;
     }
 
-    Boolean exist(Animal anim) {
-        return vectorToAnimals.get(anim.getPosition()) != null && vectorToAnimals.get(anim.getPosition()).contains(anim);
+    double getAverageEnergy(){
+        double sum = 0;
+        int number = 0;
+        for( ArrayList<Animal> array : vectorToAnimals.values()){
+            for(Animal anim : array){
+                sum+= anim.getEnergy();
+                number++;
+            }
+        }
+        return sum/number;
+    }
+
+    double getAverageChildren(){
+        int sum = 0;
+        int number =0;
+        for( ArrayList<Animal> array : vectorToAnimals.values()){
+            for(Animal anim : array){
+                sum+= anim.getNumberOfChildren();
+                number++;
+            }
+        }
+        return (double) sum/number;
+    }
+
+    double getAverageLengthOfLife(){
+        if(numberOfDeadAnimals==0)return 0;
+        return (double)totalLengthOfLifeOfDeadAnimals/numberOfDeadAnimals;
     }
 }

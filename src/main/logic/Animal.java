@@ -6,29 +6,35 @@ public class Animal {
     ArrayList<IAnimalStatusChangeObserver> observerList = new ArrayList<>();
     private MapDirection orientation = MapDirection.NORTH;
     double energy = 100;
-    Gene gen;
+    Genotype gen;
     private Vector2d position;
     AbstractWorldMap map;
     private int id;
+    private int numberOfChildren=0;
+    private int birthAge;
 
 
     Animal(AbstractWorldMap map, double startEnergy) {
-        this.position = Vector2d.generatePosition(0, 0, map);
+        this.position = Generate.generatePosition(map);
         this.map = map;
         this.energy = startEnergy;
-        this.map.place(this);
         this.orientation = OptionsParser.parse((int) Math.round(Math.random() * 7));
         this.id = map.getNextId();
-        this.gen = new Gene();
+        this.gen = new Genotype();
+        this.birthAge = map.numberOfAge;
+
+        this.map.place(this);
+
     }
 
-    Animal(AbstractWorldMap map, double startEnergy, int x, int y, Gene genoType) {
+    Animal(AbstractWorldMap map, double startEnergy, int x, int y, Genotype genoType) {
         this.position = new Vector2d(x, y);
         this.map = map;
         this.energy = startEnergy;
         this.id = map.getNextId();
-        this.map.place(this);
         this.gen = genoType;
+        this.birthAge = map.numberOfAge;
+        this.map.place(this);
     }
 
     public String toString() {
@@ -53,14 +59,36 @@ public class Animal {
         return "";
     }
 
-    public void move() {
+    void move() {
         int howManyRotates = gen.getMoveFromGene();
         MapDirection changingOrientation = getOrientation();
         for (int i = 0; i < howManyRotates; i++) {
             changingOrientation = changingOrientation.next();
         }
         Vector2d addedVector = this.position.add(changingOrientation.toUnitVector());
-        map.positionChanged(this, futurePosition(addedVector), changingOrientation);
+        for (IAnimalStatusChangeObserver elem : observerList) {
+            elem.positionChange(this, futurePosition(addedVector), changingOrientation, energy - map.getMoveEnergy());
+        }
+    }
+
+    void energyChange(double newEnergy) {
+        for(IAnimalStatusChangeObserver elem : observerList){
+            elem.energyChange(this,newEnergy);
+        }
+    }
+
+    boolean isDead(){
+        if(this.energy<=0){
+            for(IAnimalStatusChangeObserver elem : observerList){
+                elem.deadth(this);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    void addObserver(IAnimalStatusChangeObserver observer) {
+        observerList.add(observer);
     }
 
     @Override
@@ -80,7 +108,7 @@ public class Animal {
         return this.energy;
     }
 
-    public Gene getGen() {
+    public Genotype getGen() {
         return this.gen;
     }
 
@@ -88,7 +116,7 @@ public class Animal {
         return this.position;
     }
 
-    public void setPosition(Vector2d newPosition) {
+    void setPosition(Vector2d newPosition) {
         this.position = newPosition;
     }
 
@@ -96,9 +124,15 @@ public class Animal {
         return this.orientation;
     }
 
-    public void setOrientation(MapDirection orientation) {
+    void setOrientation(MapDirection orientation) {
         this.orientation = orientation;
     }
+
+    int getNumberOfChildren (){ return this.numberOfChildren; }
+
+    void newChildren (){this.numberOfChildren++;}
+
+    int getBirthAge (){return this.birthAge;}
 
     private Vector2d futurePosition(Vector2d addedVector) {
         int x = addedVector.x;
@@ -118,6 +152,7 @@ public class Animal {
         }
         return new Vector2d(x, y);
     }
+
 
 
 }

@@ -69,7 +69,7 @@ public class FormPanel extends JPanel {
         numberOfRows=gc.gridy;
     }
 
-    public void addBackButton(JButton btn){
+    public void addSimulationButton(JButton btn){
         GridBagConstraints gc = new GridBagConstraints();
         gc.gridy=numberOfRows++;
         gc.gridx=1;

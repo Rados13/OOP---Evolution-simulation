@@ -1,6 +1,8 @@
 package logic;
 
 public interface IAnimalStatusChangeObserver {
-    void energyChanged(Animal prevState,double newEnergy);
-    void positionChanged(Animal prevState,Vector2d newPosition, MapDirection newOrientation,double newEnergy);
+    void energyChange(Animal prevState,double newEnergy);
+    void positionChange(Animal prevState,Vector2d newPosition, MapDirection newOrientation,double newEnergy);
+    void deadth(Animal prevState);
+    void addElement(Animal anim);
 }
