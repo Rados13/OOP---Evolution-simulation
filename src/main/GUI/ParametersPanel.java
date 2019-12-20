@@ -21,11 +21,10 @@ public class ParametersPanel extends JPanel implements ActionListener {
         simulationButton = new JButton("Go to simulation");
         simulationButton.addActionListener(this);
 
-        form = new FormPanel();
+        form = new FormPanel(simulationButton);
 
         add(form);
 
-        form.addSimulationButton(simulationButton);
     }
 
 

@@ -46,9 +46,10 @@ public class MarkedAnimalStats extends JPanel {
             else ageOfDeadthLabel.setText("<html>Age of deadth: unknown<html>");
         }
         else{
-            genoTypeLabel.setText("<html> Dominant genotyp: <html>");
-            numberOfChildrenLabel.setText("<html> Number of children: <html>");
-            numberOfHeirsLabel.setText("<html> Number of heirs: unknown<html>");
+            genoTypeLabel.setText("<html> Genotyp: <html>");
+            numberOfChildrenLabel.setText("<html> Number of children: 0<html>");
+            numberOfHeirsLabel.setText("<html> Number of heirs: 0<html>");
+            ageOfDeadthLabel.setText("<html>Age of deadth: unknown<html>");
         }
 
     }

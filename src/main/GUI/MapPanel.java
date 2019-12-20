@@ -66,14 +66,14 @@ public class MapPanel extends JPanel implements MouseListener {
                     });
         }
 
-        if (markedOne != null && map.getDeadAgeOfMarkedOne()<0) {
-            g2d.setColor(new Color(255,0,0));
+        if (markedOne != null && map.getDeadAgeOfMarkedOne() < 0) {
+            g2d.setColor(new Color(255, 0, 0));
             fillRect(markedOne);
         }
 
         g2d.setColor(new Color(0, 13, 255));
-        if(highlight){
-            for(Animal anim: map.getAnimalsWithDominantGenotype()){
+        if (highlight) {
+            for (Animal anim : map.getAnimalsWithDominantGenotype()) {
                 fillRect(anim);
             }
         }
@@ -86,9 +86,9 @@ public class MapPanel extends JPanel implements MouseListener {
 //                    (int) ((animal.getPosition().y ) * ratioOfScale + 0.1*ratioOfScale),
 //                    (int) (0.8 * ratioOfScale), (int) (0.8*ratioOfScale));
             g2d.drawImage(animalImage, (int) ((animal.getPosition().x + scaleOfElement) * ratioOfScale),
-                    (int) ((animal.getPosition().y+ scaleOfElement) * ratioOfScale),
-                    (int) ((1-scaleOfElement*2)*ratioOfScale),
-                    (int) ((1-scaleOfElement*2)*ratioOfScale), new ImageObserver() {
+                    (int) ((animal.getPosition().y + scaleOfElement) * ratioOfScale),
+                    (int) ((1 - scaleOfElement * 2) * ratioOfScale),
+                    (int) ((1 - scaleOfElement * 2) * ratioOfScale), new ImageObserver() {
                         @Override
                         public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
                             return false;
@@ -98,7 +98,7 @@ public class MapPanel extends JPanel implements MouseListener {
 
     }
 
-    Animal getMarkedOne(){
+    Animal getMarkedOne() {
         return markedOne;
     }
 
@@ -110,7 +110,12 @@ public class MapPanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        markedOne = map.getAnimalWithHighestEnergy(new Vector2d(Math.round(e.getX()/ratioOfScale),Math.round(e.getY()/ratioOfScale)));
+        Animal potentialMarked = map.getAnimalWithHighestEnergy(new Vector2d(Math.round(e.getX() / ratioOfScale), Math.round(e.getY() / ratioOfScale)));
+        if (potentialMarked != null && potentialMarked.equals(markedOne)) {
+            markedOne = null;
+        } else {
+            markedOne = potentialMarked;
+        }
         listener.refreshMarkedOne();
     }
 
@@ -135,10 +140,10 @@ public class MapPanel extends JPanel implements MouseListener {
     }
 
     void highlightAnimalsDominantGenotype() {
-        this.highlight= !this.highlight;
+        this.highlight = !this.highlight;
     }
 
-    private void fillRect(Animal anim){
+    private void fillRect(Animal anim) {
         g2d.fillRect(anim.getPosition().x * ratioOfScale,
                 anim.getPosition().y * ratioOfScale, ratioOfScale, ratioOfScale);
 

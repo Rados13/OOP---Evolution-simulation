@@ -16,10 +16,11 @@ public class FormPanel extends JPanel {
     private ArrayList<JTextField> listOfTexts;
     private ArrayList<String> listOfKeys;
 
-    private JButton saveButton;
+    private JButton simulationButton;
     private int numberOfRows;
 
-    public FormPanel() {
+    public FormPanel(JButton simulationButton) {
+        this.simulationButton = simulationButton;
         Dimension dim = getPreferredSize();
         dim.width = 500;
         setPreferredSize(dim);
@@ -44,45 +45,36 @@ public class FormPanel extends JPanel {
             gc.gridy = y;
             textLabel = new JLabel(result.get(y).get(0));
             listOfKeys.add(textLabel.getText());
-            add(textLabel,gc);
+            add(textLabel, gc);
             gc.gridx = 1;
             textField = new JTextField(result.get(y).get(1), 10);
             listOfTexts.add(textField);
-            add(textField,gc);
+            add(textField, gc);
         }
 
         gc.gridy++;
-        gc.gridx=0;
+        gc.gridx = 1;
         gc.anchor = GridBagConstraints.CENTER;
-        saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener() {
+        simulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 Object source = event.getSource();
-                if(source==saveButton){
+                if (source == simulationButton) {
                     saveAllData();
                 }
             }
         });
 
-        add(saveButton,gc);
-        numberOfRows=gc.gridy;
+        add(simulationButton, gc);
+        numberOfRows = gc.gridy;
     }
 
-    public void addSimulationButton(JButton btn){
-        GridBagConstraints gc = new GridBagConstraints();
-        gc.gridy=numberOfRows++;
-        gc.gridx=1;
-        gc.anchor=GridBagConstraints.CENTER;
-        add(btn,gc);
-    }
-
-    private void saveAllData(){
+    private void saveAllData() {
         ArrayList<Double> values = new ArrayList<Double>();
-        for(JTextField elem : listOfTexts){
+        for (JTextField elem : listOfTexts) {
             values.add(Double.parseDouble(elem.getText()));
         }
-        ReadJson.saveChanges(listOfKeys,values);
+        ReadJson.saveChanges(listOfKeys, values);
     }
 
 

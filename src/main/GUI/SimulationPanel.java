@@ -120,7 +120,7 @@ public class SimulationPanel extends JPanel {
 
         @Override
         public void addNewMap() {
-            
+
         }
 
     }

@@ -10,7 +10,6 @@ import java.awt.*;
 public class AnimalListPanel extends JPanel {
 
     private JLabel textLabel;
-    private JPanel panel;
 
     AnimalListPanel(Jungle map){
 

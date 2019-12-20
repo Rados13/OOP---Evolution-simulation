@@ -22,9 +22,11 @@ public class ListFrame extends JFrame {
     }
 
     public void refresh(Jungle map) {
+        scroll.setVisible(false);
+        remove(scroll);
         animalList = new AnimalListPanel(map);
-        scroll.add(animalList);
-        animalList.repaint();
+        scroll = new JScrollPane(animalList);
+        add(scroll);
         setVisible(true);
     }
 }

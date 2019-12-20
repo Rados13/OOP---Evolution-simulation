@@ -24,17 +24,17 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 //        setLayout(new GridLayout(1, 5, 10, 0));
         setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 
-        startButton = new JButton("Start");
+        startButton = new JButton("<html>Start<html>");
         startButton.addActionListener(this);
         add(startButton);
 
-        stopButton = new JButton("Stop");
+        stopButton = new JButton("<html>Stop<html>");
         stopButton.addActionListener(this);
         add(stopButton);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
-        turnButton = new JButton("N turn");
+        turnButton = new JButton("<html>N turn<html>");
         turnButton.addActionListener(this);
         panel.add(turnButton);
         textField = new JTextField();
