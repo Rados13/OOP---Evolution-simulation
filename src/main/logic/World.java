@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class World {
 
-
     public static Jungle getJungle() {
         try {
             ArrayList<Double> parameters = ReadJson.readFileWorld();
@@ -12,8 +11,7 @@ public class World {
                 throw new ExceptionInInitializerError();
             }
             int startEnergy = parameters.get(2).intValue();
-            Jungle map = new Jungle(parameters);
-            return map;
+            return new Jungle(parameters);
         } catch (IllegalArgumentException | ExceptionInInitializerError ex) {
             System.out.println(ex);
             System.exit(1);

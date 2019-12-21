@@ -39,7 +39,7 @@ public class MainFrame extends JFrame {
     private mainListener listener;
 
 
-    MainFrame() {
+    private MainFrame() {
         super("Simulation");
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

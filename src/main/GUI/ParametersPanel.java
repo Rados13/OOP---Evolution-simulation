@@ -13,7 +13,7 @@ public class ParametersPanel extends JPanel implements ActionListener {
     private FormPanel form;
 
 
-    public ParametersPanel(IChangePanelListener listener) {
+    ParametersPanel(IChangePanelListener listener) {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEtchedBorder());
         this.listener = listener;

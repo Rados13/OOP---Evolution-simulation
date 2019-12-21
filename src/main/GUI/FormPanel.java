@@ -19,7 +19,7 @@ public class FormPanel extends JPanel {
     private JButton simulationButton;
     private int numberOfRows;
 
-    public FormPanel(JButton simulationButton) {
+    FormPanel(JButton simulationButton) {
         this.simulationButton = simulationButton;
         Dimension dim = getPreferredSize();
         dim.width = 500;

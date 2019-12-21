@@ -3,8 +3,8 @@ package logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class OptionsParser {
-    public static MapDirection parse(int arg) {
+class OptionsParser {
+    static MapDirection parse(int arg) {
         MapDirection result;
         switch (arg) {
             case 0:
@@ -37,7 +37,7 @@ public class OptionsParser {
         return result;
     }
 
-    public static ArrayList<MapDirection> getAllDirectionsVectors(){
+    static ArrayList<MapDirection> getAllDirectionsVectors(){
         ArrayList<MapDirection> directions = new ArrayList<MapDirection>();
         for(int i=0;i<8;i++){
             directions.add(parse(i));

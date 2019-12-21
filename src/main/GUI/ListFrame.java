@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public class ListFrame extends JFrame {
 
-    AnimalListPanel animalList;
-    JScrollPane scroll;
+    private AnimalListPanel animalList;
+    private JScrollPane scroll;
 
     ListFrame(Jungle map) {
         super("Animal list");

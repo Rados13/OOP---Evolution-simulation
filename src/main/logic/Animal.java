@@ -10,7 +10,7 @@ public class Animal {
     private Vector2d position;
     AbstractWorldMap map;
     private int id;
-    private int numberOfChildren=0;
+    private int numberOfChildren = 0;
     private int birthAge;
 
 
@@ -74,14 +74,14 @@ public class Animal {
     }
 
     void energyChange(double newEnergy) {
-        for(IAnimalStatusChangeObserver elem : observerList){
-            elem.energyChange(this,newEnergy);
+        for (IAnimalStatusChangeObserver elem : observerList) {
+            elem.energyChange(this, newEnergy);
         }
     }
 
-    boolean isDead(){
-        if(this.energy<=0){
-            for(IAnimalStatusChangeObserver elem : observerList){
+    boolean isDead() {
+        if (this.energy <= 0) {
+            for (IAnimalStatusChangeObserver elem : observerList) {
                 elem.deadth(this);
             }
             return true;
@@ -99,7 +99,7 @@ public class Animal {
         if (this == other) return true;
         if (!(other instanceof Animal)) return false;
         Animal that = (Animal) other;
-        return this.id == that.id ;
+        return this.id == that.id;
     }
 
     public int getId() {
@@ -110,7 +110,9 @@ public class Animal {
         return this.energy;
     }
 
-    public void setEnergy(double energy){this.energy = energy;}
+    void setEnergy(double energy) {
+        this.energy = energy;
+    }
 
     public Genotype getGen() {
         return this.gen;
@@ -132,13 +134,17 @@ public class Animal {
         this.orientation = orientation;
     }
 
-    public int getNumberOfChildren (){ return this.numberOfChildren; }
+    public int getNumberOfChildren() {
+        return this.numberOfChildren;
+    }
 
-    void newChildren (){this.numberOfChildren++;}
+    void newChildren() {
+        this.numberOfChildren++;
+    }
 
-    int getBirthAge (){return this.birthAge;}
-
-
+    int getBirthAge() {
+        return this.birthAge;
+    }
 
 
 }

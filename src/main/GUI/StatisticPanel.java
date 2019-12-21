@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class StatisticPanel extends JPanel {
+class StatisticPanel extends JPanel {
     private JLabel numberOfAge;
     private JLabel numberOfLivingAnimals;
     private JLabel numberOfGrass;
@@ -18,7 +18,7 @@ public class StatisticPanel extends JPanel {
     private JLabel averageLengthOfLife;
     private JLabel averageNumberOfChildren;
 
-    public StatisticPanel(Jungle map) {
+    StatisticPanel(Jungle map) {
         Border innerBorder = BorderFactory.createTitledBorder("Actual statistics");
         Border outerBorder = BorderFactory.createEmptyBorder(2, 2, 2, 2);
         setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));

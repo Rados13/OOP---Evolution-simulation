@@ -51,7 +51,7 @@ abstract class AbstractWorldMap implements IWorldMap {
 
     public double getStartEnergy(){return startEnergy;}
 
-    public double getMoveEnergy() {
+    double getMoveEnergy() {
         return moveEnergy;
     }
 

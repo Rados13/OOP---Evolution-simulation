@@ -23,7 +23,7 @@ public class Genotype {
     }
 
 
-    public String toString(){
+    public String toString() {
         return genoType.toString();
     }
 
@@ -62,7 +62,7 @@ public class Genotype {
         return new Genotype(result);
     }
 
-    ArrayList<Integer> makeAllMovesExist(ArrayList<Integer> possibleGene) {
+    private ArrayList<Integer> makeAllMovesExist(ArrayList<Integer> possibleGene) {
         Collections.sort(possibleGene);
         ArrayList<Integer> probabilityOfMove = new ArrayList<Integer>(8);
         for (int i = 0; i < 8; i++) {
@@ -104,7 +104,7 @@ public class Genotype {
     public int hashCode() {
         int sum = 0;
         for (int i = 0; i < genoType.size(); i++) {
-            sum+= genoType.get(i)*(i+1);
+            sum += genoType.get(i) * (i + 1);
         }
         return sum;
     }

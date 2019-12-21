@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 
 public class SimulationPanel extends JPanel {
 
-    ArrayList<MapPanel> mapList = new ArrayList<MapPanel>();
-    JPanel mapsPanel;
+    private ArrayList<MapPanel> mapList = new ArrayList<MapPanel>();
+    private JPanel mapsPanel;
     private ButtonsSimulationPanel buttonsPanel;
     private IChangePanelListener mainListener;
     private ISimulationChangeListener simulationListener;
@@ -128,7 +128,7 @@ public class SimulationPanel extends JPanel {
     }
 
 
-    public SimulationPanel(IChangePanelListener listener) {
+    SimulationPanel(IChangePanelListener listener) {
 
         this.mainListener = listener;
         this.simulationListener = new simulationListener(ReadJson.getDelay());
@@ -152,7 +152,7 @@ public class SimulationPanel extends JPanel {
         setVisible(true);
     }
 
-    void addMapPanel() {
+    private void addMapPanel() {
         mapList.add(new MapPanel());
         mapsPanel.add(mapList.get(mapList.size() - 1));
     }

@@ -27,7 +27,7 @@ public class DrawMapPanel extends JPanel implements MouseListener {
 
     private MapPanel listener;
 
-    Graphics2D g2d;
+    private Graphics2D g2d;
 
     DrawMapPanel(Jungle map, int n, MapPanel listener) {
         this.map = map;

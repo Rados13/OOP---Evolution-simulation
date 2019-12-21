@@ -15,8 +15,8 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
 
     private ArrayList<Animal> heirs;
 
-    void setMarkedOne(Animal markedOne){
-        this.markedOne=markedOne;
+    void setMarkedOne(Animal markedOne) {
+        this.markedOne = markedOne;
         this.heirs = new ArrayList<>();
         this.deadHeirs = new ArrayList<>();
         this.deadAge = -1;
@@ -24,17 +24,19 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
     }
 
     @Override
-    public void energyChange(Animal prevState, double newEnergy) {}
+    public void energyChange(Animal prevState, double newEnergy) {
+    }
 
     @Override
-    public void positionChange(Animal prevState, Vector2d newPosition, MapDirection newOrientation, double newEnergy) {}
+    public void positionChange(Animal prevState, Vector2d newPosition, MapDirection newOrientation, double newEnergy) {
+    }
 
     @Override
     public void deadth(Animal prevState) {
-        if(prevState.equals(markedOne)){
+        if (prevState.equals(markedOne)) {
             this.deadAge = prevState.map.getAge();
         }
-        if(heirs.contains(prevState)){
+        if (heirs.contains(prevState)) {
             heirs.remove(prevState);
             deadHeirs.add(prevState);
         }
@@ -42,7 +44,7 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
 
     @Override
     public void addElement(Animal anim) {
-        if(markedOne!=null) {
+        if (markedOne != null) {
             if (!heirs.contains(anim)) {
                 heirs.add(anim);
                 anim.addObserver(this);
@@ -50,14 +52,16 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
         }
     }
 
-    boolean heirOFMarked(Animal anim){
-        if(markedOne==null)return false;
+    boolean heirOFMarked(Animal anim) {
+        if (markedOne == null) return false;
         return heirs.contains(anim);
     }
 
-    int getNumberOfHeirs(){ return heirs.size()-1+deadHeirs.size(); }
+    int getNumberOfHeirs() {
+        return heirs.size() - 1 + deadHeirs.size();
+    }
 
-    int getDeadAge(){
+    int getDeadAge() {
         return this.deadAge;
     }
 

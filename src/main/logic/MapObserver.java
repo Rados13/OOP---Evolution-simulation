@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
-public class MapObserver {
+class MapObserver {
 
     private Jungle map;
     private long sumOfAnimalsInAges;
