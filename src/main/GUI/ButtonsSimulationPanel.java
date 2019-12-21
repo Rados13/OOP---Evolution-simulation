@@ -68,7 +68,11 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
 
         if (source == startButton) {
-            listener.start();
+            try {
+                listener.start();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         if (source == stopButton) {

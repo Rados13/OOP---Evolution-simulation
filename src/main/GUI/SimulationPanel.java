@@ -8,21 +8,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 
 public class SimulationPanel extends JPanel {
 
-    private MapPanel mapDrawing;
-    private StatisticPanel statistics;
+    ArrayList<MapPanel> mapList = new ArrayList<MapPanel>();
+    JPanel mapsPanel;
+    boolean doing;
     private ButtonsSimulationPanel buttonsPanel;
-    private Jungle map;
     private IChangePanelListener mainListener;
     private ISimulationChangeListener simulationListener;
-    private MarkedAnimalStats markedPanel;
 
     class simulationListener implements ISimulationChangeListener {
 
         Timer timer;
+        ArrayList<Thread> threads = new ArrayList<Thread>();
 
         class ActionListenerForNTurn implements ActionListener {
             int n;
@@ -40,17 +42,24 @@ public class SimulationPanel extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                World.makeTurn(map);
-                refreshData();
+                for (Thread elem : threads) {
+                    elem.run();
+                }
                 if (n > 0) this.n--;
                 if (n == 0) {
                     timer.stop();
                 }
-
             }
         }
 
-        ListFrame animalFrame;
+
+        simulationListener() {
+            threads.add(new Thread(() -> {
+                World.makeTurn(mapList.get(0).getMap());
+                mapList.get(0).refresh();
+            }));
+        }
+
 
         @Override
         public void setParameters() {
@@ -66,10 +75,9 @@ public class SimulationPanel extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                     }
                 });
-
                 timer.addActionListener(new ActionListenerForNTurn(timer));
                 timer.start();
-            }else{
+            } else {
                 timer.start();
             }
         }
@@ -93,36 +101,40 @@ public class SimulationPanel extends JPanel {
             timer.start();
         }
 
+        //
         @Override
         public void viewAnimalsList() {
-            animalFrame = new ListFrame(map);
+//            if(mapList.size()>listFrames.size()) {
+//                for (int i=0;i<mapList.size();i++) {
+//                    if(i>=listFrames.size())listFrames.add(new ListFrame(mapList.get(i).getMap()));
+//                }
+//            }
         }
-
 
         private void refreshData() {
-            mapDrawing.repaint();
-            if (animalFrame != null) animalFrame.refresh(map);
-            statistics.refresh(map);
-            markedPanel.refresh();
+            for (MapPanel elem : mapList) {
+                elem.refresh();
+            }
         }
 
-        public void refreshMarkedOne() {
-            map.setMarkedOne(mapDrawing.getMarkedOne());
-            mapDrawing.repaint();
-            markedPanel.changeMarkedAnimal(mapDrawing.getMarkedOne());
-        }
 
         @Override
         public void highlight() {
-            mapDrawing.highlightAnimalsDominantGenotype();
-            refreshData();
+            for (MapPanel elem : mapList) {
+                elem.mapDrawing.highlightAnimalsDominantGenotype();
+                elem.refresh();
+            }
         }
 
         @Override
         public void addNewMap() {
-
+            addMapPanel();
+            int n = threads.size();
+            threads.add(new Thread(() -> {
+                World.makeTurn(mapList.get(n).getMap());
+                mapList.get(n).refresh();
+            }));
         }
-
     }
 
 
@@ -133,23 +145,25 @@ public class SimulationPanel extends JPanel {
 
         setLayout(new BorderLayout());
 
-        map = World.getJungle();
+        mapList.add(new MapPanel());
 
-        mapDrawing = new MapPanel(map, ReadJson.getScale(), simulationListener);
+        mapsPanel = new JPanel();
+        mapsPanel.setLayout(new GridLayout(1, mapList.size()));
+        for (MapPanel elem : mapList) {
+            mapsPanel.add(elem);
+        }
 
-        add(new JScrollPane(mapDrawing), BorderLayout.CENTER);
+        add(new JScrollPane(mapsPanel), BorderLayout.CENTER);
 
         buttonsPanel = new ButtonsSimulationPanel(simulationListener);
         add(buttonsPanel, BorderLayout.NORTH);
 
-        JPanel panelEast = new JPanel();
-        panelEast.setLayout(new BorderLayout());
-        statistics = new StatisticPanel(map);
-        panelEast.add(statistics, BorderLayout.CENTER);
-        markedPanel = new MarkedAnimalStats(map);
-        panelEast.add(markedPanel, BorderLayout.SOUTH);
-        add(panelEast, BorderLayout.EAST);
 
         setVisible(true);
+    }
+
+    void addMapPanel() {
+        mapList.add(new MapPanel());
+        mapsPanel.add(mapList.get(mapList.size() - 1));
     }
 }
