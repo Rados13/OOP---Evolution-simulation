@@ -1,5 +1,6 @@
 package GUI;
 
+import logic.StatsWriter;
 import logic.Jungle;
 import logic.ReadJson;
 import logic.World;
@@ -23,26 +24,26 @@ public class MapPanel extends JPanel implements ActionListener {
     MapPanel() {
         map = World.getJungle();
 
-        setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
+
 
         mapDrawing = new DrawMapPanel(map, ReadJson.getScale(), this);
 
-        add(new JScrollPane(mapDrawing));
+        add(new JScrollPane(mapDrawing), BorderLayout.CENTER);
 
         GridBagLayout layout = new GridBagLayout();
         JPanel panelEast = new JPanel(layout);
         GridBagConstraints gc = new GridBagConstraints();
         gc.gridx = 0;
         gc.gridy = 0;
-        gc.gridheight = 5;
+        gc.gridheight = 4;
         gc.gridwidth = 1;
         gc.ipady = 1;
 
         statistics = new StatisticPanel(map);
         panelEast.add(statistics, gc);
 
-        gc.gridy += 5;
-        gc.gridheight = 4;
+        gc.gridy += 4;
         markedPanel = new MarkedAnimalStats(map);
         panelEast.add(markedPanel, gc);
 
@@ -55,7 +56,8 @@ public class MapPanel extends JPanel implements ActionListener {
         gc.gridy++;
         saveButton = new JButton("<html> Save statistics<html>");
         saveButton.addActionListener(this);
-        add(panelEast);
+        panelEast.add(saveButton,gc);
+        add(panelEast,BorderLayout.LINE_END);
     }
 
     Jungle getMap() {
@@ -82,15 +84,17 @@ public class MapPanel extends JPanel implements ActionListener {
             viewAnimalsList();
         }
         if(source == saveButton){
-
-            
+            saveData();
         }
     }
 
-    void viewAnimalsList() {
+    private void viewAnimalsList() {
         if (listFrame == null || !listFrame.isVisible()) {
             listFrame = new ListFrame(map);
         }
+    }
+    private void saveData(){
+        StatsWriter.saveStats(map);
     }
 }
 

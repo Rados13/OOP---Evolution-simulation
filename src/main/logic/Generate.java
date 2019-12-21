@@ -2,10 +2,10 @@ package logic;
 
 import java.util.ArrayList;
 
-public class Generate {
+class Generate {
 
-    public static Vector2d generatePosition(AbstractWorldMap map) {
-        int n = map.getUpperRight().x * map.getUpperRight().y / 2;
+    static Vector2d generatePosition(AbstractWorldMap map) {
+        int n = map.getUpperRight().x * map.getUpperRight().y ;
         while (n > 0) {
             int x, y;
             Vector2d vector;
@@ -20,9 +20,9 @@ public class Generate {
         return null;
     }
 
-    public static Vector2d generateFreeSpace(Vector2d pos, AbstractWorldMap map) {
+    static Vector2d generateFreeSpace(Vector2d pos, AbstractWorldMap map) {
         ArrayList<Vector2d> positions = new ArrayList<Vector2d>();
-        OptionsParser.getAllDirectionsVectors().forEach(direction -> positions.add(direction.toUnitVector().add(pos)));
+        OptionsParser.getAllDirectionsVectors().forEach(direction -> positions.add(map.futurePosition(direction.toUnitVector().add(pos))));
         ArrayList<Vector2d> result = new ArrayList<>(positions);
         for (Vector2d elem : positions) {
             if (!map.canMoveTo(elem)) {
@@ -36,8 +36,7 @@ public class Generate {
         }
     }
 
-
-    public static void generateGrassInsideJungle(Jungle map) {
+    static Vector2d generatePositionInsideJungle(Jungle map) {
         Vector2d vector;
         int x, y;
 
@@ -50,14 +49,14 @@ public class Generate {
             y += map.getJungleBeginY();
             vector = new Vector2d(x, y);
             if (!map.isOccupied(vector)) {
-                map.fields.put(vector, new Grass(vector));
-                return;
+                return vector;
             }
             numberOfTry--;
         }
+        return null;
     }
 
-    public static void generateGrassSavanna(Jungle map) {
+    static Vector2d generatePositionSavanna(Jungle map) {
         Vector2d vector;
         int x, y, rand;
         int numberOfTry = (int) (map.getUpperRight().x * map.getUpperRight().y * Math.pow(1 - map.getJungleRatio(), 2));
@@ -74,10 +73,10 @@ public class Generate {
             }
             vector = new Vector2d(x, y);
             if (!map.isOccupied(vector)) {
-                map.fields.put(vector, new Grass(vector));
-                return;
+                return vector;
             }
             numberOfTry--;
         }
+        return null;
     }
 }

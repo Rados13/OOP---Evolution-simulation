@@ -55,7 +55,7 @@ public class DrawMapPanel extends JPanel implements MouseListener {
         }
 
         BufferedImage grassImage = ReadImage.getGrassBufferedImage();
-        for (Vector2d grassPosition : map.getFields()) {
+        for (Vector2d grassPosition : map.getGrass()) {
             g2d.drawImage(grassImage, grassPosition.x * ratioOfScale, grassPosition.y * ratioOfScale,
                     ratioOfScale, ratioOfScale, new ImageObserver() {
                         @Override

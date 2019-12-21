@@ -9,10 +9,10 @@ abstract class AbstractWorldMap implements IWorldMap {
     AncestorStatus ancestorStatus = new AncestorStatus();
     int numberOfAnimals = 0;
     double moveEnergy;
-    int numberOfAge = 0;
+    private int numberOfAge = 0;
 
     public String toString() {
-        return new MapVisualizer(this).draw(getLowerLeft(), getUpperRight());
+        return getNumberOfAnimals()+"   "+(getLowerLeft() +"   "+ getUpperRight());
     }
 
     public boolean canMoveTo(Vector2d position) {
@@ -105,4 +105,6 @@ abstract class AbstractWorldMap implements IWorldMap {
     public int getDeadAgeOfMarkedOne() {
         return ancestorStatus.getDeadAge();
     }
+
+    public abstract Vector2d futurePosition(Vector2d addedVector);
 }
