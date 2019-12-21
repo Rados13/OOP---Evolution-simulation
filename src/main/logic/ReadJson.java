@@ -11,10 +11,10 @@ import org.json.simple.parser.ParseException;
 
 public class ReadJson {
 
-    private static String path = System.getProperty("user.dir")+"/parameters.json";
+    private static String path = System.getProperty("user.dir") + "/parameters.json";
 
 
-    private static JSONObject getJsonObject(){
+    private static JSONObject getJsonObject() {
         JSONParser jsonParser = new JSONParser();
 
         try (FileReader reader = new FileReader(path)) {
@@ -33,7 +33,7 @@ public class ReadJson {
     }
 
     static ArrayList<Double> readFileWorld() {
-        if(getJsonObject()==null){
+        if (getJsonObject() == null) {
             throw new NullPointerException();
         }
         return parseWorldObject(getJsonObject());
@@ -94,7 +94,7 @@ public class ReadJson {
 
     public static ArrayList<ArrayList<String>> readFileForm() {
 
-        if(getJsonObject()==null){
+        if (getJsonObject() == null) {
             throw new NullPointerException();
         }
         return parseDescriptionObject(getJsonObject());
@@ -103,12 +103,64 @@ public class ReadJson {
 
     private static ArrayList<ArrayList<String>> parseDescriptionObject(JSONObject world) {
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
-        for (Object key : world.keySet()) {
-            ArrayList<String> helpArray = new ArrayList<String>();
-            helpArray.add(key.toString());
-            helpArray.add(world.get(key).toString());
-            result.add(helpArray);
-        }
+        ArrayList<String> helpArray = new ArrayList<String>();
+
+
+        Object width = world.get("width");
+        helpArray.add("width");
+        helpArray.add(width.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+
+        Object height = world.get("height");
+        helpArray.add("height");
+        helpArray.add(height.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object startEnergy = world.get("startEnergy");
+        helpArray.add("Start energy");
+        helpArray.add(startEnergy.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object moveEnergy = world.get("moveEnergy");
+        helpArray.add("Move energy");
+        helpArray.add(moveEnergy.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object plantEnergy = world.get("plantEnergy");
+        helpArray.add("Plant energy");
+        helpArray.add(plantEnergy.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object jungleRatio = world.get("jungleRatio");
+        helpArray.add("Jungle ratio");
+        helpArray.add(jungleRatio.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object numberOfGrass = world.get("numberOfGrass");
+        helpArray.add("Number of Grass");
+        helpArray.add(numberOfGrass.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object numberOfAnimals = world.get("numberOfAnimals");
+        helpArray.add("Number of Animals");
+        helpArray.add(numberOfAnimals.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object delay = world.get("delay");
+        helpArray.add("Delay in ms");
+        helpArray.add(delay.toString());
+        result.add(helpArray);
+
+        System.out.println(result);
         return result;
     }
 
@@ -138,17 +190,17 @@ public class ReadJson {
     }
 
     public static int getScale() {
-        if(getJsonObject()==null)throw new NullPointerException();
-        return (int)Math.round(Double.parseDouble(getJsonObject().get("scaleOfDraw").toString()));
+        if (getJsonObject() == null) throw new NullPointerException();
+        return (int) Math.round(Double.parseDouble(getJsonObject().get("scaleOfDraw").toString()));
     }
 
     public static double getJungleRatio() {
-        if(getJsonObject()==null)throw new NullPointerException();
+        if (getJsonObject() == null) throw new NullPointerException();
         return Double.parseDouble(getJsonObject().get("jungleRatio").toString());
     }
 
-    public static int getDelay(){
-        if(getJsonObject()==null)throw new NullPointerException();
+    public static int getDelay() {
+        if (getJsonObject() == null) throw new NullPointerException();
         return (int) Math.round(Double.parseDouble(getJsonObject().get("delay").toString()));
     }
 

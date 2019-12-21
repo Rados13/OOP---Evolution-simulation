@@ -38,11 +38,15 @@ public class FormPanel extends JPanel {
         gc.weighty = 1;
 
         ArrayList<ArrayList<String>> result = ReadJson.readFileForm();
+        for(ArrayList<String> elem : result){
+            System.out.println(elem.get(0)+"  "+elem.get(1));
+        }
         listOfTexts = new ArrayList<JTextField>();
         listOfKeys = new ArrayList<String>();
         for (int y = 0; y < result.size(); y++) {
             gc.gridx = 0;
             gc.gridy = y;
+
             textLabel = new JLabel(result.get(y).get(0));
             listOfKeys.add(textLabel.getText());
             add(textLabel, gc);

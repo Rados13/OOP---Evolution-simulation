@@ -93,7 +93,7 @@ public class SimulationPanel extends JPanel {
         @Override
         public void makeNTurn(int n) {
 
-            timer = new Timer(10, new ActionListener() {
+            timer = new Timer(delay, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                 }
