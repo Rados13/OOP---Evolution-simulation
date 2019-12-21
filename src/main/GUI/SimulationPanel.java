@@ -70,17 +70,14 @@ public class SimulationPanel extends JPanel {
 
         @Override
         public void start() {
-            if (timer == null) {
-                timer = new Timer(delay, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                    }
-                });
-                timer.addActionListener(new ActionListenerForNTurn(timer));
-                timer.start();
-            } else {
-                timer.start();
-            }
+            if(timer!=null)timer.stop();
+            timer = new Timer(delay, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
+            timer.addActionListener(new ActionListenerForNTurn(timer));
+            timer.start();
         }
 
 
@@ -126,6 +123,7 @@ public class SimulationPanel extends JPanel {
                 World.makeTurn(mapList.get(n).getMap());
                 mapList.get(n).refresh();
             }));
+            refreshData();
         }
     }
 

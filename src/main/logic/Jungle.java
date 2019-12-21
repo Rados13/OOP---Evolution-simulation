@@ -38,9 +38,9 @@ public class Jungle extends AbstractWorldMap {
             generateGrassForOneDay();
         }
 
-        if(n%2==1){
+        if (n % 2 == 1) {
             Vector2d potentialPosition = Generate.generatePositionInsideJungle(this);
-            if(potentialPosition!=null)vectorToGrass.put(potentialPosition,new Grass(potentialPosition));
+            if (potentialPosition != null) vectorToGrass.put(potentialPosition, new Grass(potentialPosition));
         }
 
         for (int i = 0; i < parameters.get(7); i++) {
@@ -58,10 +58,7 @@ public class Jungle extends AbstractWorldMap {
         if (something != null) {
             return something;
         }
-        for (Grass elem : vectorToGrass.values()) {
-            if (elem.getPosition().equals(position)) return elem;
-        }
-        return null;
+        return vectorToGrass.get(position);
     }
 
 
@@ -81,12 +78,12 @@ public class Jungle extends AbstractWorldMap {
 
     void generateGrassForOneDay() {
         Vector2d potentialPosition = Generate.generatePositionInsideJungle(this);
-        if(potentialPosition!=null && objectAt(potentialPosition)==null){
-            vectorToGrass.put(potentialPosition,new Grass(potentialPosition));
+        if (potentialPosition != null && objectAt(potentialPosition) == null) {
+            vectorToGrass.put(potentialPosition, new Grass(potentialPosition));
         }
         potentialPosition = Generate.generatePositionSavanna(this);
-        if(potentialPosition!=null && objectAt(potentialPosition)==null){
-            vectorToGrass.put(potentialPosition,new Grass(potentialPosition));
+        if (potentialPosition != null && objectAt(potentialPosition) == null) {
+            vectorToGrass.put(potentialPosition, new Grass(potentialPosition));
         }
     }
 
@@ -96,19 +93,21 @@ public class Jungle extends AbstractWorldMap {
                 vectorToGrass.remove(anim.getPosition());
                 List<Animal> list = animalsStatus.getAnimalWithHighestEnergy(anim.getPosition());
                 for (Animal elem : list) {
-                    elem.energyChange(plantEnergy / list.size()+elem.getEnergy());
+                    elem.energyChange(plantEnergy / list.size() + elem.getEnergy());
                 }
             }
         }
     }
 
     void reproduction() {
+
         for (Vector2d vector : new ArrayList<Vector2d>(animalsStatus.vectorToAnimals.keySet())) {
             List<Animal> parents = animalsStatus.getParents(vector, startEnergy / 2);
             if (parents != null) {
                 Vector2d position = Generate.generateFreeSpace(vector, this);
                 if (position == null) continue;
-                Animal child = new Animal(this, parents.get(0).energy / 4 + parents.get(1).energy / 4, position.x, position.y, childrenGene(parents));
+                Animal child = new Animal(this, parents.get(0).energy / 4 + parents.get(1).energy / 4,
+                        position.x, position.y, childrenGene(parents));
                 for (Animal elem : new ArrayList<>(parents)) {
                     if (ancestorStatus.heirOFMarked(elem)) ancestorStatus.addElement(child);
                     elem.energyChange(elem.energy - elem.energy / 4);
@@ -204,6 +203,8 @@ public class Jungle extends AbstractWorldMap {
         statistics.update();
     }
 
-    MapObserver getStatistics(){return statistics;}
+    MapObserver getStatistics() {
+        return statistics;
+    }
 
 }
