@@ -46,7 +46,7 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
 
 
-        addNewMapButton = new JButton("<html>Add second map<html>");
+        addNewMapButton = new JButton("<html>Add another map<html>");
         addNewMapButton.addActionListener(this);
         add(addNewMapButton);
 

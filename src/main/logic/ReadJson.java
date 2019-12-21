@@ -42,54 +42,48 @@ public class ReadJson {
     private static ArrayList<Double> parseWorldObject(JSONObject world) {
         ArrayList<Double> result = new ArrayList<Double>();
 
-        Object width = world.get("width");
+        Object width = world.get("Width");
         if (width instanceof Long) {
             result.add(Double.parseDouble(width.toString()));
         } else result.add((double) width);
 
-        Object height = world.get("height");
+        Object height = world.get("Height");
         if (height instanceof Long) {
             result.add(Double.parseDouble(height.toString()));
         } else result.add((double) height);
 
-        Object startEnergy = world.get("startEnergy");
+        Object startEnergy = world.get("Start energy");
         if (startEnergy instanceof Long) {
             result.add(Double.parseDouble(startEnergy.toString()));
         } else result.add((double) startEnergy);
 
-        Object moveEnergy = world.get("moveEnergy");
+        Object moveEnergy = world.get("Move energy");
         if (moveEnergy instanceof Long) {
             result.add(Double.parseDouble(moveEnergy.toString()));
         } else result.add((double) moveEnergy);
 
-        Object plantEnergy = world.get("plantEnergy");
+        Object plantEnergy = world.get("Plant energy");
         if (plantEnergy instanceof Long) {
             result.add(Double.parseDouble(plantEnergy.toString()));
         } else result.add((double) plantEnergy);
 
-        Object jungleRatio = world.get("jungleRatio");
+        Object jungleRatio = world.get("Jungle ratio");
         if (jungleRatio instanceof Long) {
             result.add(Double.parseDouble(jungleRatio.toString()));
         } else result.add((double) jungleRatio);
 
 
-        Object numberOfGrass = world.get("numberOfGrass");
+        Object numberOfGrass = world.get("Number of Grass");
         if (numberOfGrass instanceof Long) {
             result.add(Double.parseDouble(numberOfGrass.toString()));
         } else result.add((double) numberOfGrass);
 
-        Object numberOfAnimals = world.get("numberOfAnimals");
+        Object numberOfAnimals = world.get("Number of Animals");
         if (numberOfGrass instanceof Long) {
             result.add(Double.parseDouble(numberOfAnimals.toString()));
         } else result.add((double) numberOfAnimals);
 
-        Object delay = world.get("numberOfAnimals");
-        if (delay instanceof Long) {
-            result.add(Double.parseDouble(delay.toString()));
-        } else result.add((double) numberOfAnimals);
-
         return result;
-
     }
 
     public static ArrayList<ArrayList<String>> readFileForm() {
@@ -106,61 +100,66 @@ public class ReadJson {
         ArrayList<String> helpArray = new ArrayList<String>();
 
 
-        Object width = world.get("width");
-        helpArray.add("width");
-        helpArray.add(width.toString());
+        Object width = world.get("Width");
+        helpArray.add("Width");
+        helpArray.add(Long.toString(Math.round(Double.parseDouble(width.toString()))));
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
 
-        Object height = world.get("height");
-        helpArray.add("height");
-        helpArray.add(height.toString());
+        Object height = world.get("Height");
+        helpArray.add("Height");
+        helpArray.add(Long.toString(Math.round(Double.parseDouble(height.toString()))));
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object startEnergy = world.get("startEnergy");
+        Object startEnergy = world.get("Start energy");
         helpArray.add("Start energy");
         helpArray.add(startEnergy.toString());
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object moveEnergy = world.get("moveEnergy");
+        Object moveEnergy = world.get("Move energy");
         helpArray.add("Move energy");
         helpArray.add(moveEnergy.toString());
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object plantEnergy = world.get("plantEnergy");
+        Object plantEnergy = world.get("Plant energy");
         helpArray.add("Plant energy");
         helpArray.add(plantEnergy.toString());
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object jungleRatio = world.get("jungleRatio");
+        Object jungleRatio = world.get("Jungle ratio");
         helpArray.add("Jungle ratio");
         helpArray.add(jungleRatio.toString());
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object numberOfGrass = world.get("numberOfGrass");
+        Object numberOfGrass = world.get("Number of Grass");
         helpArray.add("Number of Grass");
-        helpArray.add(numberOfGrass.toString());
+        helpArray.add(Long.toString(Math.round(Double.parseDouble(numberOfGrass.toString()))));
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object numberOfAnimals = world.get("numberOfAnimals");
+        Object numberOfAnimals = world.get("Number of Animals");
         helpArray.add("Number of Animals");
-        helpArray.add(numberOfAnimals.toString());
+        helpArray.add(Long.toString(Math.round(Double.parseDouble(numberOfAnimals.toString()))));
         result.add(helpArray);
         helpArray = new ArrayList<>();
 
-        Object delay = world.get("delay");
+        Object scale = world.get("Scale of Draw");
+        helpArray.add("Scale of Draw");
+        helpArray.add(scale.toString());
+        result.add(helpArray);
+        helpArray = new ArrayList<>();
+
+        Object delay = world.get("Delay in ms");
         helpArray.add("Delay in ms");
-        helpArray.add(delay.toString());
+        helpArray.add(Long.toString(Math.round(Double.parseDouble(delay.toString()))));
         result.add(helpArray);
 
-        System.out.println(result);
         return result;
     }
 
@@ -191,17 +190,17 @@ public class ReadJson {
 
     public static int getScale() {
         if (getJsonObject() == null) throw new NullPointerException();
-        return (int) Math.round(Double.parseDouble(getJsonObject().get("scaleOfDraw").toString()));
+        return (int) Math.round(Double.parseDouble(getJsonObject().get("Scale of Draw").toString()));
     }
 
     public static double getJungleRatio() {
         if (getJsonObject() == null) throw new NullPointerException();
-        return Double.parseDouble(getJsonObject().get("jungleRatio").toString());
+        return Double.parseDouble(getJsonObject().get("Jungle ratio").toString());
     }
 
     public static int getDelay() {
         if (getJsonObject() == null) throw new NullPointerException();
-        return (int) Math.round(Double.parseDouble(getJsonObject().get("delay").toString()));
+        return (int) Math.round(Double.parseDouble(getJsonObject().get("Delay in ms").toString()));
     }
 
 }
