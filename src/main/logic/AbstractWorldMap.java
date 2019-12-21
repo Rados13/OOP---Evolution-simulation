@@ -5,9 +5,10 @@ import java.util.*;
 abstract class AbstractWorldMap implements IWorldMap {
     LinkedList<Animal> animals = new LinkedList<Animal>();
     AnimalsStatus animalsStatus = new AnimalsStatus();
-    GenotypeStatus genesStatus = new GenotypeStatus();
+    private GenotypeStatus genesStatus = new GenotypeStatus();
     AncestorStatus ancestorStatus = new AncestorStatus();
     int numberOfAnimals = 0;
+    double startEnergy;
     double moveEnergy;
     private int numberOfAge = 0;
 
@@ -47,7 +48,10 @@ abstract class AbstractWorldMap implements IWorldMap {
 
     abstract Vector2d getUpperRight();
 
-    double getMoveEnergy() {
+
+    public double getStartEnergy(){return startEnergy;}
+
+    public double getMoveEnergy() {
         return moveEnergy;
     }
 
@@ -106,5 +110,15 @@ abstract class AbstractWorldMap implements IWorldMap {
         return ancestorStatus.getDeadAge();
     }
 
+    public ArrayList<Animal> getAnimalsWithHighestEnergyForEachPosition(){
+        ArrayList<Animal> result = new ArrayList<Animal>();
+        for(Vector2d position : animalsStatus.getOccupiedPosition()){
+            result.add(getAnimalWithHighestEnergy(position));
+        }
+        return result;
+    }
+
+
     public abstract Vector2d futurePosition(Vector2d addedVector);
+
 }

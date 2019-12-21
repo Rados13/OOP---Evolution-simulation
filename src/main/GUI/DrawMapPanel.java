@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 
@@ -20,7 +21,7 @@ public class DrawMapPanel extends JPanel implements MouseListener {
 
     private Animal markedOne = null;
 
-    boolean highlight = false;
+    private boolean highlight = false;
 
     private double scaleOfElement = 0.1;
 
@@ -42,27 +43,18 @@ public class DrawMapPanel extends JPanel implements MouseListener {
         this.g2d = g2d;
         double jungleRatio = ReadJson.getJungleRatio();
 
-
-        g2d.setColor(new Color(0, 212, 7));
+        g2d.setColor(new Color(255, 255, 115));
+        g2d.fillRect(0, 0, (map.getUpperRight().x + 1) * ratioOfScale, (map.getUpperRight().y + 1) * ratioOfScale);
+        g2d.setColor(new Color(62, 150, 0));
         g2d.fillRect(map.getJungleBeginX() * ratioOfScale, map.getJungleBeginY() * ratioOfScale,
                 map.getJungleWidth() * ratioOfScale, map.getJungleHeight() * ratioOfScale);
 
-        for (int i = 0; i <= map.getUpperRight().x * ratioOfScale; i += ratioOfScale) {
-            for (int j = 0; j <= map.getUpperRight().y * ratioOfScale; j += ratioOfScale) {
-                g2d.setColor(new Color(0, 0, 0));
-                g2d.drawRect(i, j, ratioOfScale, ratioOfScale);
-            }
-        }
 
-        BufferedImage grassImage = ReadImage.getGrassBufferedImage();
-        for (Vector2d grassPosition : map.getGrass()) {
-            g2d.drawImage(grassImage, grassPosition.x * ratioOfScale, grassPosition.y * ratioOfScale,
-                    ratioOfScale, ratioOfScale, new ImageObserver() {
-                        @Override
-                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-                            return false;
-                        }
-                    });
+        g2d.setColor(new Color(0, 13, 255));
+        if (highlight && map.getAnimals().size() != 0) {
+            for (Animal anim : map.getAnimalsWithDominantGenotype()) {
+                fillRect(anim);
+            }
         }
 
         if (markedOne != null && map.getDeadAgeOfMarkedOne() < 0) {
@@ -70,29 +62,31 @@ public class DrawMapPanel extends JPanel implements MouseListener {
             fillRect(markedOne);
         }
 
-        g2d.setColor(new Color(0, 13, 255));
-        if (highlight) {
-            for (Animal anim : map.getAnimalsWithDominantGenotype()) {
-                fillRect(anim);
-            }
+
+        g2d.setColor(new Color(104, 255, 0));
+        for (Vector2d grassPosition : map.getGrass()) {
+            g2d.fillRect((int) ((grassPosition.x + scaleOfElement) * ratioOfScale),
+                    (int) ((grassPosition.y + scaleOfElement) * ratioOfScale),
+                    (int) ((1 - scaleOfElement * 2) * ratioOfScale),
+                    (int) ((1 - scaleOfElement * 2) * ratioOfScale));
         }
 
-
-        BufferedImage animalImage = ReadImage.getAnimalBufferedImage();
-        for (Animal animal : map.getAnimals()) {
-//            g2d.setColor(Color.getHSBColor((float) animal.getEnergy(), 0, (float) animal.getEnergy()));
-//            g2d.fillRect((int) ((animal.getPosition().x ) * ratioOfScale + 0.1 * ratioOfScale),
-//                    (int) ((animal.getPosition().y ) * ratioOfScale + 0.1*ratioOfScale),
-//                    (int) (0.8 * ratioOfScale), (int) (0.8*ratioOfScale));
-            g2d.drawImage(animalImage, (int) ((animal.getPosition().x + scaleOfElement) * ratioOfScale),
+        for (Animal animal : map.getAnimalsWithHighestEnergyForEachPosition()) {
+            int redScale = 150;
+            int greenScale = 75;
+            if (animal.getEnergy() < map.getStartEnergy() / map.getMoveEnergy()) {
+                redScale = (int) Math.round((animal.getEnergy() > 0 ? animal.getEnergy() : 0) *
+                        map.getMoveEnergy() / map.getStartEnergy() * 150);
+                System.out.println(redScale);
+                greenScale = (int) Math.round((animal.getEnergy() > 0 ? animal.getEnergy() : 0) *
+                        map.getMoveEnergy() / map.getStartEnergy() * 75);
+                System.out.println(redScale);
+            }
+            g2d.setColor(new Color(redScale, greenScale, 0));
+            g2d.fillOval((int) ((animal.getPosition().x + scaleOfElement) * ratioOfScale),
                     (int) ((animal.getPosition().y + scaleOfElement) * ratioOfScale),
                     (int) ((1 - scaleOfElement * 2) * ratioOfScale),
-                    (int) ((1 - scaleOfElement * 2) * ratioOfScale), new ImageObserver() {
-                        @Override
-                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-                            return false;
-                        }
-                    });
+                    (int) ((1 - scaleOfElement * 2) * ratioOfScale));
         }
 
     }
@@ -148,5 +142,4 @@ public class DrawMapPanel extends JPanel implements MouseListener {
                 anim.getPosition().y * ratioOfScale, ratioOfScale, ratioOfScale);
 
     }
-
 }

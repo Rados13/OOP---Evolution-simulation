@@ -46,7 +46,6 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         numberOfDeadAnimals ++;
     }
 
-
     public void energyChange(Animal prevState, double newEnergy) {
         ArrayList<Animal> array = vectorToAnimals.get(prevState.getPosition());
         int idx = array.indexOf(prevState);
@@ -134,4 +133,6 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
         if(numberOfDeadAnimals==0)return 0;
         return (double)totalLengthOfLifeOfDeadAnimals/numberOfDeadAnimals;
     }
+
+    Set<Vector2d> getOccupiedPosition(){return vectorToAnimals.keySet();}
 }

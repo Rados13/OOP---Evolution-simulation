@@ -6,7 +6,6 @@ public class Jungle extends AbstractWorldMap {
     private Map<Vector2d, Grass> vectorToGrass = new LinkedHashMap<Vector2d, Grass>();
     private final Vector2d LowerLeft = new Vector2d(0, 0);
     private final Vector2d UpperRight;
-    private double startEnergy;
     private double plantEnergy;
     private double jungleRatio;
     private MapObserver statistics;
@@ -97,7 +96,7 @@ public class Jungle extends AbstractWorldMap {
                 vectorToGrass.remove(anim.getPosition());
                 List<Animal> list = animalsStatus.getAnimalWithHighestEnergy(anim.getPosition());
                 for (Animal elem : list) {
-                    elem.energyChange(plantEnergy / list.size());
+                    elem.energyChange(plantEnergy / list.size()+elem.getEnergy());
                 }
             }
         }

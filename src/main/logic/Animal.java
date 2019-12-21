@@ -66,8 +66,10 @@ public class Animal {
             changingOrientation = changingOrientation.next();
         }
         Vector2d addedVector = this.position.add(changingOrientation.toUnitVector());
+        double futureEnergy = energy - map.getMoveEnergy();
         for (IAnimalStatusChangeObserver elem : observerList) {
-            elem.positionChange(this, map.futurePosition(addedVector), changingOrientation, energy - map.getMoveEnergy());
+            elem.positionChange(this, map.futurePosition(addedVector),
+                    changingOrientation, futureEnergy);
         }
     }
 
