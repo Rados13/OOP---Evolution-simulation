@@ -1,7 +1,7 @@
-Number of ages : 123
-Average number of animals in all ages : 251.390243902439
-Average number of grassfields in all ages : 4.056910569105691
-Average most dominant genotype in all ages : [0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7]
-Average energy in all ages : 1931.7187586710463
-Average length of life for dead animals in all ages : 57.535606546854936
-Average numer of children for animal in all ages : 1.586272875769358
+Number of ages : 16
+Average number of animals in all ages : 0.875
+Average number of grassfields in all ages : 67.4375
+Average most dominant genotype in all ages : [0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7]
+Average energy in all ages : 19.0625
+Average length of life for dead animals in all ages : 6.4
+Average numer of children for animal in all ages : 0.0

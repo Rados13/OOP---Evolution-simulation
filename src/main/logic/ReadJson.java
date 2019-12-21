@@ -1,6 +1,7 @@
 package logic;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -10,13 +11,13 @@ import org.json.simple.parser.ParseException;
 
 public class ReadJson {
 
+    private static String path = System.getProperty("user.dir")+"/parameters.json";
+
 
     private static JSONObject getJsonObject(){
         JSONParser jsonParser = new JSONParser();
 
-        URL url = ReadJson.class.getResource("parameters.json");
-
-        try (FileReader reader = new FileReader(url.getPath())) {
+        try (FileReader reader = new FileReader(path)) {
             Object obj = jsonParser.parse(reader);
 
             return (JSONObject) obj;
@@ -30,7 +31,6 @@ public class ReadJson {
         }
         return null;
     }
-
 
     public static ArrayList<Double> readFileWorld() {
         if(getJsonObject()==null){
@@ -111,9 +111,7 @@ public class ReadJson {
 
     public static void saveChanges(ArrayList<String> keys, ArrayList<Double> values) {
         JSONParser jsonParser = new JSONParser();
-
-        URL url = ReadJson.class.getResource("parameters.json");
-        try (FileReader reader = new FileReader(url.getPath())) {
+        try (FileReader reader = new FileReader(path)) {
             Object obj = jsonParser.parse(reader);
 
             JSONObject jsonObject = (JSONObject) obj;
@@ -123,7 +121,7 @@ public class ReadJson {
                 jsonObject.put(keys.get(i), values.get(i));
             }
 
-            FileWriter file = new FileWriter(url.getPath());
+            FileWriter file = new FileWriter(path);
             file.write(jsonObject.toJSONString());
             file.flush();
 

@@ -5,6 +5,7 @@ import java.util.*;
 public class Genotype {
     final public ArrayList<Integer> genoType;
 
+
     Genotype() {
         ArrayList<Integer> randomGens = new ArrayList<Integer>();
         for (int i = 0; i < 32; i++) {
@@ -19,6 +20,11 @@ public class Genotype {
         } else {
             throw new IllegalArgumentException("Size of array is not equal to 32 " + array.size());
         }
+    }
+
+
+    public String toString(){
+        return genoType.toString();
     }
 
     int getMoveFromGene() {

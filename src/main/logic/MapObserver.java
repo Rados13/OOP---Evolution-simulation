@@ -19,7 +19,7 @@ public class MapObserver {
         this.map = map;
         sumOfAnimalsInAges = map.getNumberOfAnimals();
         sumOfGrassInAges = map.getNumberOfGrass();
-        genotypeToTimesOfDominance = new HashMap<Genotype, Integer>();
+        genotypeToTimesOfDominance = new HashMap<>();
         genotypeToTimesOfDominance.put(map.getDominantGenotype(), 1);
         sumOfAverageEnergy = map.getAverageEnergy();
         sumOfAverageLengthOfLife = map.getAverageLengthOfLife();
@@ -33,7 +33,7 @@ public class MapObserver {
         Genotype dominant = map.getDominantGenotype();
         if (genotypeToTimesOfDominance.containsKey(dominant)) {
             genotypeToTimesOfDominance.replace(dominant, genotypeToTimesOfDominance.get(dominant) + 1);
-        } else {
+        } else if(dominant!=null){
             genotypeToTimesOfDominance.put(dominant, 1);
         }
         sumOfAverageEnergy += map.getAverageEnergy();
@@ -53,15 +53,16 @@ public class MapObserver {
     }
 
     Genotype getMostDominantGenotypeInAges() {
-        Genotype dominant = null;
+        if (genotypeToTimesOfDominance.size() == 0) return null;
+        Genotype gen = null;
         int max = -1;
         for (Genotype elem : genotypeToTimesOfDominance.keySet()) {
             if (max < genotypeToTimesOfDominance.get(elem)) {
-                dominant = elem;
+                gen = elem ;
                 max = genotypeToTimesOfDominance.get(elem);
             }
         }
-        return dominant;
+        return gen;
     }
 
     double getAverageEnergyInAges() {
