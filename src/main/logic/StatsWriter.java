@@ -21,7 +21,7 @@ public class StatsWriter {
             }
             writer.write("Average energy in all ages : " + World.getAverageEnergy(map) + "\n");
             writer.write("Average length of life for dead animals in all ages : " + World.getAverageLengthOfLife(map) + "\n");
-            writer.write("Average numer of children for animal in all ages : " + World.getAverageNumberOfChildren(map) + "\n");
+            writer.write("Average number of children for animal in all ages : " + World.getAverageNumberOfChildren(map) + "\n");
             writer.flush();
             writer.close();
         } catch (IOException e) {

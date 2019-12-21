@@ -24,6 +24,7 @@ public class SimulationPanel extends JPanel {
 
         Timer timer;
         ArrayList<Thread> threads = new ArrayList<Thread>();
+        int delay;
 
         class ActionListenerForNTurn implements ActionListener {
             int n;
@@ -52,11 +53,12 @@ public class SimulationPanel extends JPanel {
         }
 
 
-        simulationListener() {
+        simulationListener(int delay) {
             threads.add(new Thread(() -> {
                 World.makeTurn(mapList.get(0).getMap());
                 mapList.get(0).refresh();
             }));
+            this.delay = delay;
         }
 
 
@@ -69,7 +71,7 @@ public class SimulationPanel extends JPanel {
         @Override
         public void start() {
             if (timer == null) {
-                timer = new Timer(100, new ActionListener() {
+                timer = new Timer(delay, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                     }
@@ -131,7 +133,7 @@ public class SimulationPanel extends JPanel {
     public SimulationPanel(IChangePanelListener listener) {
 
         this.mainListener = listener;
-        this.simulationListener = new simulationListener();
+        this.simulationListener = new simulationListener(ReadJson.getDelay());
 
         setLayout(new BorderLayout());
 

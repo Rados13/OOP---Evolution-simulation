@@ -32,7 +32,7 @@ public class ReadJson {
         return null;
     }
 
-    public static ArrayList<Double> readFileWorld() {
+    static ArrayList<Double> readFileWorld() {
         if(getJsonObject()==null){
             throw new NullPointerException();
         }
@@ -41,7 +41,6 @@ public class ReadJson {
 
     private static ArrayList<Double> parseWorldObject(JSONObject world) {
         ArrayList<Double> result = new ArrayList<Double>();
-//        JSONObject world = (JSONObject) world.get("world");
 
         Object width = world.get("width");
         if (width instanceof Long) {
@@ -68,7 +67,6 @@ public class ReadJson {
             result.add(Double.parseDouble(plantEnergy.toString()));
         } else result.add((double) plantEnergy);
 
-
         Object jungleRatio = world.get("jungleRatio");
         if (jungleRatio instanceof Long) {
             result.add(Double.parseDouble(jungleRatio.toString()));
@@ -83,6 +81,11 @@ public class ReadJson {
         Object numberOfAnimals = world.get("numberOfAnimals");
         if (numberOfGrass instanceof Long) {
             result.add(Double.parseDouble(numberOfAnimals.toString()));
+        } else result.add((double) numberOfAnimals);
+
+        Object delay = world.get("numberOfAnimals");
+        if (delay instanceof Long) {
+            result.add(Double.parseDouble(delay.toString()));
         } else result.add((double) numberOfAnimals);
 
         return result;
@@ -139,15 +142,14 @@ public class ReadJson {
         return (int)Math.round(Double.parseDouble(getJsonObject().get("scaleOfDraw").toString()));
     }
 
-
     public static double getJungleRatio() {
         if(getJsonObject()==null)throw new NullPointerException();
         return Double.parseDouble(getJsonObject().get("jungleRatio").toString());
     }
 
-    public static int getNumberOfAnimals(){
+    public static int getDelay(){
         if(getJsonObject()==null)throw new NullPointerException();
-        return (int)Math.round(Double.parseDouble(getJsonObject().get("numberOfAnimals").toString()));
+        return (int) Math.round(Double.parseDouble(getJsonObject().get("delay").toString()));
     }
 
 }

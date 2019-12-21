@@ -1,6 +1,8 @@
 package logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AncestorStatus implements IAnimalStatusChangeObserver {
 
@@ -9,11 +11,14 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
 
     private int deadAge;
 
+    private ArrayList<Animal> deadHeirs;
+
     private ArrayList<Animal> heirs;
 
     void setMarkedOne(Animal markedOne){
         this.markedOne=markedOne;
-        this.heirs = new ArrayList<Animal>();
+        this.heirs = new ArrayList<>();
+        this.deadHeirs = new ArrayList<>();
         this.deadAge = -1;
         addElement(markedOne);
     }
@@ -28,6 +33,10 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
     public void deadth(Animal prevState) {
         if(prevState.equals(markedOne)){
             this.deadAge = prevState.map.getAge();
+        }
+        if(heirs.contains(prevState)){
+            heirs.remove(prevState);
+            deadHeirs.add(prevState);
         }
     }
 
@@ -46,9 +55,7 @@ public class AncestorStatus implements IAnimalStatusChangeObserver {
         return heirs.contains(anim);
     }
 
-    int getNumberOfHeirs(){
-        return heirs.size()-1;
-    }
+    int getNumberOfHeirs(){ return heirs.size()-1+deadHeirs.size(); }
 
     int getDeadAge(){
         return this.deadAge;

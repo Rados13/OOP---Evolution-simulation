@@ -1,1 +1,1 @@
-{"jungleRatio":0.5,"moveEnergy":1.0,"scaleOfDraw":40.0,"width":20.0,"plantEnergy":50.0,"startEnergy":100.0,"numberOfGrass":50.0,"numberOfAnimals":2.0,"height":20.0}
+{"jungleRatio":0.5,"delay":10.0,"moveEnergy":10.0,"scaleOfDraw":15.0,"width":50.0,"plantEnergy":10000.0,"startEnergy":1000.0,"numberOfGrass":50.0,"numberOfAnimals":5.0,"height":50.0}

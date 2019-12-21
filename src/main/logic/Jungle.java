@@ -138,7 +138,6 @@ public class Jungle extends AbstractWorldMap {
         }
 
         if (y > getUpperRight().y) {
-//            System.out.println("("+x+","+y+")");
             y = 0;
         }
         return new Vector2d(x, y);

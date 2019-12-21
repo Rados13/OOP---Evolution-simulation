@@ -99,8 +99,7 @@ public class Animal {
         if (this == other) return true;
         if (!(other instanceof Animal)) return false;
         Animal that = (Animal) other;
-        return this.id == that.id && this.position == that.position && this.energy == that.energy
-                && this.gen.equals(that.gen);
+        return this.id == that.id ;
     }
 
     public int getId() {

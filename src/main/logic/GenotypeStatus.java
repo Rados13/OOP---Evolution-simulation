@@ -11,20 +11,10 @@ public class GenotypeStatus implements IAnimalStatusChangeObserver {
 
     @Override
     public void energyChange(Animal prevState, double newEnergy) {
-        ArrayList<Animal> array=genotypeToAmount.get(prevState.getGen());
-        array.remove(prevState);
-        prevState.setEnergy(newEnergy);
-        array.add(prevState);
     }
 
     @Override
     public void positionChange(Animal prevState, Vector2d newPosition, MapDirection newOrientation, double newEnergy) {
-        ArrayList<Animal> array=genotypeToAmount.get(prevState.getGen());
-        array.remove(prevState);
-        prevState.setEnergy(newEnergy);
-        prevState.setOrientation(newOrientation);
-        prevState.setPosition(newPosition);
-        array.add(prevState);
     }
 
     @Override

@@ -20,7 +20,6 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
         this.listener = listener;
 
-//        setLayout(new GridLayout(1, 5, 10, 0));
         setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 
         startButton = new JButton("<html>Start<html>");

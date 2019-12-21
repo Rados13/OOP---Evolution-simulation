@@ -74,13 +74,11 @@ public class DrawMapPanel extends JPanel implements MouseListener {
         for (Animal animal : map.getAnimalsWithHighestEnergyForEachPosition()) {
             int redScale = 150;
             int greenScale = 75;
-            if (animal.getEnergy() < map.getStartEnergy() / map.getMoveEnergy()) {
-                redScale = (int) Math.round((animal.getEnergy() > 0 ? animal.getEnergy() : 0) *
-                        map.getMoveEnergy() / map.getStartEnergy() * 150);
-                System.out.println(redScale);
-                greenScale = (int) Math.round((animal.getEnergy() > 0 ? animal.getEnergy() : 0) *
-                        map.getMoveEnergy() / map.getStartEnergy() * 75);
-                System.out.println(redScale);
+            if (animal.getEnergy() < map.getStartEnergy()* 2.5) {
+                redScale = (int) Math.round((animal.getEnergy() > 0 ? animal.getEnergy() : 0) /
+                         (2.5*map.getStartEnergy()) * 150);
+                greenScale = (int) Math.round((animal.getEnergy() > 0 ? animal.getEnergy() : 0)
+                        / (2.5*map.getStartEnergy()) * 75);
             }
             g2d.setColor(new Color(redScale, greenScale, 0));
             g2d.fillOval((int) ((animal.getPosition().x + scaleOfElement) * ratioOfScale),
