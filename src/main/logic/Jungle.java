@@ -99,10 +99,11 @@ public class Jungle extends AbstractWorldMap {
             List<Animal> parents = animalsStatus.getParents(vector, startEnergy / 2);
             if (parents != null) {
                 Vector2d position = Generate.generateFreeSpace(vector, this);
+                if(position == null) continue;
                 Animal child = new Animal(this, parents.get(0).energy / 4 + parents.get(1).energy / 4, position.x, position.y, childrenGene(parents));
                 for (Animal elem : new ArrayList<>(parents)) {
                     if(ancestorStatus.heirOFMarked(elem))ancestorStatus.addElement(child);
-                    elem.energyChange(elem.energy - this.startEnergy / 2);
+                    elem.energyChange(elem.energy - elem.energy/ 4);
                     elem.newChildren();
                 }
             }
@@ -131,7 +132,7 @@ public class Jungle extends AbstractWorldMap {
         return new ArrayList<Animal>(animals);
     }
 
-    public double getJungleRatio() {
+    double getJungleRatio() {
         return jungleRatio;
     }
 
@@ -151,20 +152,25 @@ public class Jungle extends AbstractWorldMap {
         return (UpperRight.y - getJungleHeight()) / 2 + 1;
     }
 
-    public int getSavannaWidth() {
+    int getSavannaWidth() {
         return UpperRight.x - getJungleWidth();
     }
 
-    public int getSavannaHeight() {
+    int getSavannaHeight() {
         return UpperRight.y - getJungleHeight();
     }
 
-    public int getSavannaSecondBeginX() {
+    int getSavannaSecondBeginX() {
         return UpperRight.x - getSavannaWidth() / 2;
     }
 
-    public int getSavannaSecondBeginY() {
+    int getSavannaSecondBeginY() {
         return UpperRight.y - getSavannaHeight() / 2;
+    }
+
+    public int getNumberOfGrass(){
+        if(fields==null)return 0;
+        return fields.size();
     }
 
 }

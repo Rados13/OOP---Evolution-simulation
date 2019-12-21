@@ -47,24 +47,62 @@ abstract class AbstractWorldMap implements IWorldMap {
 
     abstract Vector2d getUpperRight();
 
-    double getMoveEnergy(){return moveEnergy;}
+    double getMoveEnergy() {
+        return moveEnergy;
+    }
 
     int getNextId() {
         return numberOfAnimals++;
     }
-    void nextAge(){numberOfAge++;}
-    public int getAge() {return numberOfAge;}
-    public Genotype getDominantGenotype(){return genesStatus.getDominantGenotype();}
-    public ArrayList<Animal> getAnimalsWithDominantGenotype(){return genesStatus.getAnimalsWithDominantGenotype();}
-    public Double getAverageEnergy(){return animalsStatus.getAverageEnergy();}
-    public Double getAverageNumberOfChildren(){return animalsStatus.getAverageChildren();}
-    public Double getAverageLengthOfLife(){return animalsStatus.getAverageLengthOfLife();}
+
+    void nextAge() {
+        numberOfAge++;
+    }
+
+    public int getAge() {
+        return numberOfAge;
+    }
+
+    public Genotype getDominantGenotype() {
+        return genesStatus.getDominantGenotype();
+    }
+
+    public ArrayList<Animal> getAnimalsWithDominantGenotype() {
+        return genesStatus.getAnimalsWithDominantGenotype();
+    }
+
+    public Double getAverageEnergy() {
+        return animalsStatus.getAverageEnergy();
+    }
+
+    public Double getAverageNumberOfChildren() {
+        return animalsStatus.getAverageChildren();
+    }
+
+    public Double getAverageLengthOfLife() {
+        return animalsStatus.getAverageLengthOfLife();
+    }
+
     public Animal getAnimalWithHighestEnergy(Vector2d vec) {
         List<Animal> anim = animalsStatus.getAnimalWithHighestEnergy(vec);
         if (anim != null) return animalsStatus.getAnimalWithHighestEnergy(vec).get(0);
         return null;
     }
-    public void setMarkedOne(Animal markedOne){ancestorStatus.setMarkedOne(markedOne);}
-    public int getNumberOfHeirsOfMarkedOne(){return ancestorStatus.getNumberOfHeirs();}
-    public int getDeadAgeOfMarkedOne(){return ancestorStatus.getDeadAge();}
+
+    public void setMarkedOne(Animal markedOne) {
+        ancestorStatus.setMarkedOne(markedOne);
+    }
+
+    public int getNumberOfHeirsOfMarkedOne() {
+        return ancestorStatus.getNumberOfHeirs();
+    }
+
+    public int getNumberOfAnimals() {
+        if (animals == null) return 0;
+        return animals.size();
+    }
+
+    public int getDeadAgeOfMarkedOne() {
+        return ancestorStatus.getDeadAge();
+    }
 }

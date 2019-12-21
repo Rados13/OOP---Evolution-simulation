@@ -16,7 +16,6 @@ public class SimulationPanel extends JPanel {
 
     ArrayList<MapPanel> mapList = new ArrayList<MapPanel>();
     JPanel mapsPanel;
-    boolean doing;
     private ButtonsSimulationPanel buttonsPanel;
     private IChangePanelListener mainListener;
     private ISimulationChangeListener simulationListener;
@@ -101,15 +100,6 @@ public class SimulationPanel extends JPanel {
             timer.start();
         }
 
-        //
-        @Override
-        public void viewAnimalsList() {
-//            if(mapList.size()>listFrames.size()) {
-//                for (int i=0;i<mapList.size();i++) {
-//                    if(i>=listFrames.size())listFrames.add(new ListFrame(mapList.get(i).getMap()));
-//                }
-//            }
-        }
 
         private void refreshData() {
             for (MapPanel elem : mapList) {

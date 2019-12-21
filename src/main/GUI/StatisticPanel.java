@@ -22,16 +22,21 @@ public class StatisticPanel extends JPanel {
         Border innerBorder = BorderFactory.createTitledBorder("Actual statistics");
         Border outerBorder = BorderFactory.createEmptyBorder(2, 2, 2, 2);
         setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-        setPreferredSize(new Dimension(200,200));
+        setPreferredSize(new Dimension(200,400));
 
         setLayout(new GridLayout(7,1,0,0));
         numberOfAge = new JLabel("Number of age: "+Integer.toString(map.getAge()));
         add(numberOfAge);
-        numberOfLivingAnimals = new JLabel("Number of animals: "+Integer.toString(map.getAnimals().size()));
+        numberOfLivingAnimals = new JLabel("Number of animals: "+Integer.toString(map.getNumberOfAnimals()));
         add(numberOfLivingAnimals);
-        numberOfGrass = new JLabel("Number of grass: "+Integer.toString(map.getFields().size()));
+        numberOfGrass = new JLabel("Number of grass: "+Integer.toString(map.getNumberOfGrass()));
         add(numberOfGrass);
-        dominantGenotype = new JLabel("<html>Dominant genotyp: "+map.getDominantGenotype().genoType+"<html>");
+        if(map.getDominantGenotype()==null){
+            dominantGenotype = new JLabel("<html>Dominant genotyp: unknown<html>");
+        }
+        else {
+            dominantGenotype = new JLabel("<html>Dominant genotyp: " + map.getDominantGenotype().genoType + "<html>");
+        }
         add(dominantGenotype);
         averageEnergy = new JLabel(" Average energy: "+map.getAverageEnergy());
         add(averageEnergy);
@@ -43,9 +48,14 @@ public class StatisticPanel extends JPanel {
 
     void refresh(Jungle map){
         numberOfAge.setText("<html>Number of age: "+Integer.toString(map.getAge())+"<html>");
-        numberOfLivingAnimals.setText("<html>Number of animals: "+Integer.toString(map.getAnimals().size())+"<html>");
-        numberOfGrass.setText("<html>Number of grass: "+Integer.toString(map.getFields().size())+"<html>");
-        dominantGenotype.setText("<html> Dominant genotyp: "+map.getDominantGenotype().genoType+"<html>");
+        numberOfLivingAnimals.setText("<html>Number of animals: "+Integer.toString(map.getNumberOfAnimals())+"<html>");
+        numberOfGrass.setText("<html>Number of grass: "+Integer.toString(map.getNumberOfGrass())+"<html>");
+        if(map.getDominantGenotype()==null){
+            dominantGenotype.setText("<html> Dominant genotyp: unknown<html>");
+        }
+        else{
+            dominantGenotype.setText("<html> Dominant genotyp: "+map.getDominantGenotype().genoType+"<html>");
+        }
         averageEnergy.setText("<html> Average energy: "+map.getAverageEnergy()+"<html>");
         averageLengthOfLife.setText("<html>Average length of life: "+map.getAverageLengthOfLife()+"<html>");
         averageNumberOfChildren.setText("<html>Average number of children: "+map.getAverageNumberOfChildren()+"<html>");

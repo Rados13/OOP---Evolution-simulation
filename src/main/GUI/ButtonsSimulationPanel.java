@@ -10,7 +10,6 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
     private JButton turnButton;
     private JButton stopButton;
     private JButton startButton;
-    private JButton animalsButton;
     private JButton changeParametersButton;
     private JButton highlightDominantGeneAnimalsButton;
     private JButton addNewMapButton;
@@ -46,9 +45,6 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
         highlightDominantGeneAnimalsButton.addActionListener(this);
         add(highlightDominantGeneAnimalsButton);
 
-        animalsButton = new JButton("<html>List of animals<html>");
-        animalsButton.addActionListener(this);
-        add(animalsButton);
 
 
         addNewMapButton = new JButton("<html>Add second map<html>");
@@ -68,11 +64,7 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
 
         if (source == startButton) {
-            try {
-                listener.start();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            listener.start();
         }
 
         if (source == stopButton) {
@@ -88,11 +80,6 @@ public class ButtonsSimulationPanel extends JPanel implements ActionListener {
 
         if (source == changeParametersButton) {
             listener.setParameters();
-        }
-
-
-        if (source == animalsButton) {
-            listener.viewAnimalsList();
         }
 
         if (source == addNewMapButton) {

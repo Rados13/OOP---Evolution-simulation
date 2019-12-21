@@ -5,7 +5,6 @@ public interface ISimulationChangeListener {
     public void stop();
     public void start();
     public void makeNTurn(int n);
-    public void viewAnimalsList();
     public void highlight();
     public void addNewMap();
 }

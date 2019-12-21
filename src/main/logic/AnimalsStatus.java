@@ -113,6 +113,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
                 number++;
             }
         }
+        if(number==0)return 0;
         return sum/number;
     }
 
@@ -125,6 +126,7 @@ public class AnimalsStatus implements IAnimalStatusChangeObserver {
                 number++;
             }
         }
+        if(number==0)return 0;
         return (double) sum/number;
     }
 

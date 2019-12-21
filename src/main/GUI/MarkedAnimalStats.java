@@ -22,7 +22,7 @@ public class MarkedAnimalStats extends JPanel {
         Border innerBorder = BorderFactory.createTitledBorder("Marked statistics");
         Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-        setPreferredSize(new Dimension(200, 200));
+        setPreferredSize(new Dimension(200, 400));
         setLayout(new GridLayout(4,1,0,5));
 
 

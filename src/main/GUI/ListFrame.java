@@ -21,7 +21,7 @@ public class ListFrame extends JFrame {
 
     }
 
-    public void refresh(Jungle map) {
+    void refresh(Jungle map) {
         scroll.setVisible(false);
         remove(scroll);
         animalList = new AnimalListPanel(map);

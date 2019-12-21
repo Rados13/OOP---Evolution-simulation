@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Generate {
 
     public static Vector2d generatePosition(AbstractWorldMap map) {
-        int n = map.getUpperRight().x * map.getUpperRight().y;
+        int n = map.getUpperRight().x * map.getUpperRight().y / 2;
         while (n > 0) {
             int x, y;
             Vector2d vector;
@@ -17,7 +17,7 @@ public class Generate {
             }
             n--;
         }
-        throw new ExceptionInInitializerError("Nie udalo sie znalezc pozycji dla zwierzecia");
+        return null;
     }
 
     public static Vector2d generateFreeSpace(Vector2d pos, AbstractWorldMap map) {
