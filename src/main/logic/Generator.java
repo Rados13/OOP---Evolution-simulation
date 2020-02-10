@@ -2,7 +2,7 @@ package logic;
 
 import java.util.ArrayList;
 
-class Generate {
+class Generator {
 
     static Vector2d generatePosition(AbstractWorldMap map) {
         int n = map.getUpperRight().x * map.getUpperRight().y ;

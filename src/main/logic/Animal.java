@@ -15,7 +15,7 @@ public class Animal {
 
 
     Animal(AbstractWorldMap map, double startEnergy) {
-        this.position = Generate.generatePosition(map);
+        this.position = Generator.generatePosition(map);
         this.map = map;
         this.energy = startEnergy;
         this.orientation = OptionsParser.parse((int) Math.round(Math.random() * 7));
